@@ -9,13 +9,19 @@ extends CharacterBody2D
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var sprite: Sprite2D = $Sprite
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
+		sprite.flip_h = direction < 0
+		animation_player.play("run")
 		velocity.x += direction * acceleration * delta
 		velocity.x = min(velocity.x, direction * max_speed)
 	else:
+		animation_player.play("idle")
 		velocity.x = lerp(velocity.x, 0, friction)
 	
 	if is_on_floor():
@@ -26,6 +32,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 		velocity.y = min(velocity.y, jump_force)
 		
+		animation_player.play("jump")
 		if Input.is_action_just_released("ui_up") and velocity.y < -jump_force / 2:
 			velocity.y = -jump_force / 2
 	
