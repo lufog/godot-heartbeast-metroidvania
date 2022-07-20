@@ -1,3 +1,36 @@
-[gd_scene format=3 uid="uid://bk1uhc1toir33"]
+[gd_scene load_steps=3 format=3 uid="uid://bk1uhc1toir33"]
+
+[ext_resource type="PackedScene" uid="uid://n7r6x528t1gh" path="res://world/brick.tscn" id="1_jesqf"]
+[ext_resource type="PackedScene" uid="uid://bbxv1ou4fn4lu" path="res://player/player.tscn" id="2_ugcw4"]
 
 [node name="World" type="Node"]
+
+[node name="Brick" parent="." instance=ExtResource("1_jesqf")]
+position = Vector2(0, 160)
+
+[node name="Brick2" parent="." instance=ExtResource("1_jesqf")]
+position = Vector2(16, 160)
+
+[node name="Brick3" parent="." instance=ExtResource("1_jesqf")]
+position = Vector2(32, 160)
+
+[node name="Brick4" parent="." instance=ExtResource("1_jesqf")]
+position = Vector2(48, 160)
+
+[node name="Brick5" parent="." instance=ExtResource("1_jesqf")]
+position = Vector2(48, 144)
+
+[node name="Brick6" parent="." instance=ExtResource("1_jesqf")]
+position = Vector2(64, 160)
+
+[node name="Brick7" parent="." instance=ExtResource("1_jesqf")]
+position = Vector2(80, 160)
+
+[node name="Brick8" parent="." instance=ExtResource("1_jesqf")]
+position = Vector2(64, 144)
+
+[node name="Brick9" parent="." instance=ExtResource("1_jesqf")]
+position = Vector2(96, 160)
+
+[node name="Player" parent="." instance=ExtResource("2_ugcw4")]
+position = Vector2(16, 160)
