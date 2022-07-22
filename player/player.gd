@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = direction < 0
 		animation_player.play("run")
 		velocity.x += direction * acceleration * delta
-		velocity.x = min(velocity.x, direction * max_speed)
+		velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	else:
 		animation_player.play("idle")
 		velocity.x = lerp(velocity.x, 0, friction)
@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		# Apply gravity.
 		velocity.y += gravity * delta
-		velocity.y = min(velocity.y, jump_force)
+		velocity.y = clamp(velocity.y, -jump_force, jump_force)
 		
 		animation_player.play("jump")
 		if Input.is_action_just_released("ui_up") and velocity.y < -jump_force / 2:
