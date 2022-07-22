@@ -36,6 +36,4 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_released("ui_up") and velocity.y < -jump_force / 2:
 			velocity.y = -jump_force / 2
 	
-	print(velocity)
-	
 	move_and_slide()

@@ -6,6 +6,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihbif"]
 size = Vector2(8, 14)
 
+[sub_resource type="Animation" id="Animation_hli8j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_ap5h0"]
 resource_name = "idle"
 length = 1.2
@@ -23,8 +38,9 @@ tracks/0/keys = {
 "values": [1, 2, 3, 4]
 }
 
-[sub_resource type="Animation" id="Animation_hli8j"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_xf7j3"]
+resource_name = "jump"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,8 +50,8 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0]
+"update": 1,
+"values": [11]
 }
 
 [sub_resource type="Animation" id="Animation_sll55"]
@@ -53,22 +69,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7, 8, 9, 4]
-}
-
-[sub_resource type="Animation" id="Animation_xf7j3"]
-resource_name = "jump"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8k452"]
@@ -95,3 +95,6 @@ shape = SubResource("RectangleShape2D_ihbif")
 libraries = {
 "": SubResource("AnimationLibrary_8k452")
 }
+
+[node name="CameraFollow" type="RemoteTransform2D" parent="."]
+position = Vector2(0, -8)
