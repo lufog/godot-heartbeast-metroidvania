@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bk1uhc1toir33"]
 
-[ext_resource type="PackedScene" uid="uid://n7r6x528t1gh" path="res://world/brick.tscn" id="1_jesqf"]
-[ext_resource type="PackedScene" uid="uid://bbxv1ou4fn4lu" path="res://player/player.tscn" id="2_ugcw4"]
+[ext_resource type="PackedScene" path="res://world/brick.tscn" id="1_jesqf"]
+[ext_resource type="PackedScene" uid="uid://c4e8tqxhlxjxo" path="res://player/player.tscn" id="2_ugcw4"]
 
 [node name="World" type="Node"]
 
@@ -48,6 +48,6 @@ smoothing_enabled = true
 [node name="StaticBody" type="StaticBody2D" parent="."]
 
 [node name="Collision" type="CollisionPolygon2D" parent="StaticBody"]
-polygon = PackedVector2Array(0, 48, 0, 192, 128, 192, 160, 160, 208, 160, 240, 112, 288, 112, 320, 48, 336, 48, 336, 208, -16, 208, -16, 48)
+polygon = PackedVector2Array(0, 48, 0, 192, 128, 192, 160, 160, 176, 160, 176, 176, 224, 176, 256, 128, 288, 128, 320, 64, 336, 64, 336, 208, -16, 208, -16, 48)
 
 [editable path="Player"]
