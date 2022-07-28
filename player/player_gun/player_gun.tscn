@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://uf0enkakp31h"]
+
+[ext_resource type="Script" path="res://player/player_gun/player_gun.gd" id="1_nti6g"]
+[ext_resource type="Texture2D" uid="uid://b6xcucfm1o6m5" path="res://player/textures/player_gun.png" id="1_uw2kh"]
+
+[node name="PlayerGun" type="Node2D"]
+script = ExtResource("1_nti6g")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-2, -2)
+texture = ExtResource("1_uw2kh")
+centered = false
+
+[node name="MuzzleLocation" type="Position2D" parent="Sprite"]
+position = Vector2(13, 2)

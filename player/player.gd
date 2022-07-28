@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const DUST_EFFECT_SCENE: PackedScene = preload("res://effects/dust_effect/dust_effect.tscn")
 
 @export var max_speed: float = 64
@@ -18,10 +17,16 @@ var is_jumping: bool = false
 
 
 func _physics_process(delta: float) -> void:
+	var facing_direction: int = sign(get_local_mouse_position().x)
+	sprite.scale.x = facing_direction
+	
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
-		sprite.flip_h = direction < 0
-		animation_player.play("run")
+		if direction == facing_direction:
+			animation_player.play("run")
+		else:
+			animation_player.play_backwards("run")
+		
 		velocity.x += direction * acceleration * delta
 		velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	else:
