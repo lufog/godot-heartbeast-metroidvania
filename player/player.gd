@@ -18,10 +18,11 @@ var is_jumping: bool = false
 @onready var muzzle_location: Node2D = $Sprite/PlayerGun/Sprite/MuzzleLocation
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var fire_bullet_timer: Timer = $FireBulletTimer
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire") and fire_bullet_timer.is_stopped():
 		_fire_bullet()
 	
 	var facing_direction: int = sign(get_local_mouse_position().x)
@@ -74,6 +75,7 @@ func _create_dust_effect() -> void:
 
 
 func _fire_bullet() -> void:
+	fire_bullet_timer.start()
 	var bullet := Utils.instantiate_scene_on_main(BULLET_SCENE, muzzle_location.global_position)
 	bullet.velocity = Vector2.RIGHT.rotated(gun.rotation) * bullet_speed
 	bullet.velocity.x *= sprite.scale.x
