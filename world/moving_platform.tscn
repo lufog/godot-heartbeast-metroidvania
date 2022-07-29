@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddndd0scluu1u"]
+
+[ext_resource type="Texture2D" uid="uid://bhhodpxgkwjdg" path="res://world/textures/moving_platform.png" id="1_sn7aj"]
+[ext_resource type="Curve2D" uid="uid://bxw517mkhtvec" path="res://world/up_down.tres" id="2_gjvyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3rbb"]
+size = Vector2(32, 8)
+
+[sub_resource type="Animation" id="Animation_nq4no"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path/PathFollow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wvowc"]
+resource_name = "default"
+length = 4.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path/PathFollow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tud3v"]
+_data = {
+"RESET": SubResource("Animation_nq4no"),
+"default": SubResource("Animation_wvowc")
+}
+
+[node name="MovingPlatform" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="CharacterBody" type="CharacterBody2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="CharacterBody"]
+texture = ExtResource("1_sn7aj")
+
+[node name="Collision" type="CollisionShape2D" parent="CharacterBody"]
+shape = SubResource("RectangleShape2D_k3rbb")
+one_way_collision = true
+
+[node name="Path" type="Path2D" parent="."]
+curve = ExtResource("2_gjvyq")
+
+[node name="PathFollow" type="PathFollow2D" parent="Path"]
+rotates = false
+loop = false
+
+[node name="RemoteTransform" type="RemoteTransform2D" parent="Path/PathFollow"]
+remote_path = NodePath("../../../CharacterBody")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+playback_process_mode = 0
+playback_speed = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_tud3v")
+}

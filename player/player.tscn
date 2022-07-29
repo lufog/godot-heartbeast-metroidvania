@@ -101,6 +101,7 @@ _data = {
 floor_constant_speed = true
 floor_snap_length = 4.0
 script = ExtResource("1_20vd3")
+metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
