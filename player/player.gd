@@ -1,22 +1,29 @@
 extends CharacterBody2D
 
 const DUST_EFFECT_SCENE: PackedScene = preload("res://effects/dust_effect/dust_effect.tscn")
+const BULLET_SCENE: PackedScene = preload("res://player/projectile/player_bullet.tscn")
 
 @export var max_speed: float = 64
 @export var acceleration: float = 256
 @export var friction: float = 0.25
 @export var jump_force: float = 128
 @export var max_slope_angle: float = 46
+@export var bullet_speed: float = 250
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping: bool = false
 
 @onready var sprite: Sprite2D = $Sprite
+@onready var gun: Node2D = $Sprite/PlayerGun
+@onready var muzzle_location: Node2D = $Sprite/PlayerGun/Sprite/MuzzleLocation
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var coyote_timer: Timer = $CoyoteTimer
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("fire"):
+		_fire_bullet()
+	
 	var facing_direction: int = sign(get_local_mouse_position().x)
 	sprite.scale.x = facing_direction
 	
@@ -62,6 +69,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _create_dust_effect() -> void:
-	var dust_effect := DUST_EFFECT_SCENE.instantiate() as Node2D
-	get_parent().add_child(dust_effect)
-	dust_effect.global_position = global_position + Vector2(randf_range(-4, 4), 0)
+	var dust_position := global_position + Vector2(randf_range(-4, 4), 0)
+	Utils.instantiate_scene_on_main(DUST_EFFECT_SCENE, dust_position)
+
+
+func _fire_bullet() -> void:
+	var bullet := Utils.instantiate_scene_on_main(BULLET_SCENE, muzzle_location.global_position)
+	bullet.velocity = Vector2.RIGHT.rotated(gun.rotation) * bullet_speed
+	bullet.velocity.x *= sprite.scale.x
+	bullet.rotation = bullet.velocity.angle()
