@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk1uhc1toir33"]
+[gd_scene load_steps=10 format=3 uid="uid://bk1uhc1toir33"]
 
 [ext_resource type="Texture2D" uid="uid://c2btpnpaca5gp" path="res://world/textures/tileset.png" id="1_rk447"]
 [ext_resource type="Texture2D" uid="uid://rgihfmalddnm" path="res://world/textures/slopes.png" id="2_r1u5d"]
 [ext_resource type="PackedScene" uid="uid://c4e8tqxhlxjxo" path="res://player/player.tscn" id="2_ugcw4"]
 [ext_resource type="PackedScene" uid="uid://ddndd0scluu1u" path="res://world/moving_platform.tscn" id="4_chkqd"]
 [ext_resource type="Curve2D" uid="uid://7lqo316h3uf8" path="res://world/left_right.tres" id="5_1fral"]
+[ext_resource type="PackedScene" uid="uid://c4y6hd4l0rw1j" path="res://enemies/walking_enemy.tscn" id="6_3w76x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3eia"]
 texture = ExtResource("1_rk447")
@@ -512,7 +513,8 @@ texture = ExtResource("2_r1u5d")
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_xvuw7"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Floor"
 terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
@@ -527,14 +529,13 @@ format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 262144, 1, 131072, 196608, 1, 196608, 196608, 1, 262144, 196608, 1, 327680, 196608, 1, 393216, 196608, 1, 458752, 196608, 1, 524288, 196608, 1, 589824, 262144, 2, 655360, 0, 2, 655361, 65536, 2, 655362, 65536, 2, 655363, 65536, 2, 655364, 65536, 2, 655365, 65536, 2, 655366, 65536, 2, 655367, 65536, 2, 655368, 65536, 2, 655369, 65536, 2, 655370, 65536, 2, 655371, 65536, 2, 655372, 327680, 3, 655373, 65536, 3, 655374, 65536, 3, 655375, 393216, 3, 655376, 327680, 3, 655377, 65536, 3, 655378, 65536, 3, 655379, 458752, 3, 589843, 196608, 1, 524307, 196608, 1, 458771, 196608, 1, 393235, 458752, 4, 327699, 196608, 1, 262163, 196608, 1, 196627, 196608, 1, 131091, 196608, 1, 65555, 458752, 1, 19, 131072, 0, 18, 65536, 0, 17, 65536, 0, 16, 65536, 0, 15, 65536, 0, 14, 393216, 0, 13, 65536, 3, 12, 65536, 3, 11, 65536, 3, 10, 65536, 3, 9, 65536, 3, 8, 65536, 3, 7, 327680, 0, 6, 65536, 0, 5, 65536, 0, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 1, 65536, 0, 589831, 65536, 1, 589832, 65536, 1, 589833, 65536, 1, 589834, 65536, 1, 589835, 65536, 1, 589836, 131072, 1, 589825, 65536, 0, 589826, 65536, 0, 589827, 65536, 0, 589828, 327681, 0, 589829, 65536, 1, 589830, 65536, 1, 524295, 65536, 0, 524296, 65536, 0, 524297, 65536, 0, 524298, 65536, 0, 524299, 65536, 0, 524300, 131072, 0, 65537, 65536, 2, 65538, 65536, 2, 65539, 65536, 2, 65540, 65536, 2, 65541, 393216, 1, 65542, 65536, 1, 131078, 524288, 1, 196614, 196608, 2, 131077, 0, 2, 65543, 131072, 1, 131079, 131072, 2, 65550, 0, 1, 65551, 65536, 1, 65552, 327680, 1, 65553, 65536, 2, 65554, 65536, 2, 131086, 0, 2, 131087, 65536, 2, 131088, 131072, 2, 393232, 65536, 3, 393233, 65536, 3, 393234, 65536, 3, 393231, 0, 3, 589839, 0, 0, 589840, 131072, 0, 524293, 262145, 0, 524292, 196609, 0, 524294, 65536, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_ugcw4")]
-position = Vector2(104, 120)
-metadata/_edit_group_ = true
+position = Vector2(100, 128)
 
 [node name="CameraFollow" parent="Player" index="3"]
 remote_path = NodePath("../../Camera")
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(104, 112)
+position = Vector2(100, 120)
 current = true
 smoothing_enabled = true
 
@@ -546,6 +547,9 @@ position = Vector2(152, 96)
 
 [node name="Path" parent="MovingPlatform2" index="1"]
 curve = ExtResource("5_1fral")
+
+[node name="WalkingEnemy" parent="." instance=ExtResource("6_3w76x")]
+position = Vector2(22, 144)
 
 [editable path="Player"]
 [editable path="MovingPlatform2"]

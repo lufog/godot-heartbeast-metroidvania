@@ -63,6 +63,11 @@ fire={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="World"
+
 [physics]
 
 2d/default_gravity=200.0

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4y6hd4l0rw1j"]
+
+[ext_resource type="PackedScene" uid="uid://b5fjfp3e85plo" path="res://enemies/enemy.tscn" id="1_bca0r"]
+[ext_resource type="Texture2D" uid="uid://ccyimak4xvrs1" path="res://enemies/textures/walking_enemy.png" id="2_6usxi"]
+[ext_resource type="Script" path="res://enemies/walking_enemy.gd" id="2_elpcl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob78p"]
+size = Vector2(4, 12)
+
+[node name="WalkingEnemy" instance=ExtResource("1_bca0r")]
+floor_constant_speed = true
+floor_max_angle = 0.802851
+floor_snap_length = 4.0
+script = ExtResource("2_elpcl")
+walking_direction = 1
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_6usxi")
+offset = Vector2(0, -9)
+flip_h = true
+hframes = 2
+
+[node name="Collision" parent="." index="1"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_ob78p")
+
+[node name="FloorLeftRayCast" type="RayCast2D" parent="." index="3"]
+position = Vector2(-2, 0)
+target_position = Vector2(0, 10)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="FloorRightRayCast" type="RayCast2D" parent="." index="4"]
+position = Vector2(2, 0)
+target_position = Vector2(0, 10)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="WallLeftRayCast" type="RayCast2D" parent="." index="5"]
+position = Vector2(0, -8)
+target_position = Vector2(-10, 0)
+collision_mask = 2
+
+[node name="WallRightRayCast" type="RayCast2D" parent="." index="6"]
+position = Vector2(0, -8)
+target_position = Vector2(10, 0)
+collision_mask = 2
