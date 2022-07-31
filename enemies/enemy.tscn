@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5fjfp3e85plo"]
+[gd_scene load_steps=3 format=3 uid="uid://b5fjfp3e85plo"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_08cw5"]
+[ext_resource type="PackedScene" uid="uid://c5nqrj7er6rk6" path="res://collision_boxes/hurtbox.tscn" id="2_mo4py"]
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 0
@@ -12,3 +13,8 @@ script = ExtResource("1_08cw5")
 [node name="Collision" type="CollisionShape2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_mo4py")]
+collision_layer = 8
+
+[connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]

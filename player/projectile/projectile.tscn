@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://vethxhjqr2qe"]
+[gd_scene load_steps=3 format=3 uid="uid://vethxhjqr2qe"]
 
 [ext_resource type="Script" path="res://player/projectile/projectile.gd" id="1_8itmy"]
+[ext_resource type="PackedScene" uid="uid://0480v2ocpexx" path="res://collision_boxes/hitbox.tscn" id="2_mmmaq"]
 
 [node name="Projectile" type="Node2D"]
 script = ExtResource("1_8itmy")
@@ -12,4 +13,9 @@ rect = Rect2(-4, -4, 8, 8)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
+[node name="Hitbox" parent="." instance=ExtResource("2_mmmaq")]
+collision_mask = 2
+
 [connection signal="screen_exited" from="VisibleNotifier" to="." method="_on_visible_notifier_screen_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
