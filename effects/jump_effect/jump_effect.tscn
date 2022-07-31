@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyhtdw6k7wxx3"]
+
+[ext_resource type="PackedScene" uid="uid://i8vyj1oejecm" path="res://effects/effect.tscn" id="1_g8mmm"]
+[ext_resource type="Texture2D" uid="uid://cniy5su8qpbpa" path="res://effects/jump_effect/textures/jump_effect.png" id="2_air2e"]
+
+[sub_resource type="Animation" id="Animation_s5clr"]
+resource_name = "default"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_72j4f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oycau"]
+_data = {
+"RESET": SubResource("Animation_72j4f"),
+"default": SubResource("Animation_s5clr")
+}
+
+[node name="JumpEffect" instance=ExtResource("1_g8mmm")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_air2e")
+offset = Vector2(0, -8)
+hframes = 4
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_oycau")
+}

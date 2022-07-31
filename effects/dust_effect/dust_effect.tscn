@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3]
 
 [ext_resource type="PackedScene" uid="uid://i8vyj1oejecm" path="res://effects/effect.tscn" id="1_v5pwt"]
-[ext_resource type="Texture2D" uid="uid://bnk4vaadktqhg" path="res://effects/textures/dust.png" id="2_0oikp"]
+[ext_resource type="Texture2D" path="res://effects/dust_effect/textures/dust.png" id="2_0oikp"]
 [ext_resource type="Script" path="res://effects/dust_effect/dust_effect.gd" id="2_tmhbo"]
 
 [sub_resource type="Animation" id="Animation_ukc74"]

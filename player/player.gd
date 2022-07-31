@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const DUST_EFFECT_SCENE: PackedScene = preload("res://effects/dust_effect/dust_effect.tscn")
+const JUMP_EFFECT_SCENE: PackedScene =preload("res://effects/jump_effect/jump_effect.tscn")
 const BULLET_SCENE: PackedScene = preload("res://player/projectile/player_bullet.tscn")
 
 @export var max_speed: float = 64
@@ -54,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor() or not coyote_timer.is_stopped():
 		if Input.is_action_just_pressed("jump"):
+			Utils.instantiate_scene_on_main(JUMP_EFFECT_SCENE, global_position)
 			velocity.y = -jump_force
 			is_jumping = true
 			coyote_timer.stop()
@@ -66,7 +68,7 @@ func _physics_process(delta: float) -> void:
 		coyote_timer.start()
 	
 	if not was_on_flor and is_on_floor():
-		_create_dust_effect()
+		Utils.instantiate_scene_on_main(JUMP_EFFECT_SCENE, global_position)
 
 
 func _create_dust_effect() -> void:
