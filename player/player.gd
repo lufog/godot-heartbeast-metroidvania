@@ -10,6 +10,7 @@ const BULLET_SCENE: PackedScene = preload("res://player/projectile/player_bullet
 @export var jump_force: float = 128
 @export var max_slope_angle: float = 46
 @export var bullet_speed: float = 250
+@export var invincible := false
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping: bool = false
@@ -17,7 +18,8 @@ var is_jumping: bool = false
 @onready var sprite: Sprite2D = $Sprite
 @onready var gun: Node2D = $Sprite/PlayerGun
 @onready var muzzle_location: Node2D = $Sprite/PlayerGun/Sprite/MuzzleLocation
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite_animation_player: AnimationPlayer = $SpriteAnimationPlayer
+@onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var fire_bullet_timer: Timer = $FireBulletTimer
 
@@ -32,14 +34,14 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		if direction == facing_direction:
-			animation_player.play("run")
+			sprite_animation_player.play("run")
 		else:
-			animation_player.play_backwards("run")
+			sprite_animation_player.play_backwards("run")
 		
 		velocity.x += direction * acceleration * delta
 		velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	else:
-		animation_player.play("idle")
+		sprite_animation_player.play("idle")
 		velocity.x = lerp(velocity.x, 0, friction)
 	
 	if is_on_floor():
@@ -49,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 		velocity.y = clamp(velocity.y, -jump_force, jump_force)
 
-		animation_player.play("jump")
+		sprite_animation_player.play("jump")
 		if Input.is_action_just_released("jump") and velocity.y < -jump_force / 2:
 			velocity.y = -jump_force / 2
 	
@@ -69,6 +71,11 @@ func _physics_process(delta: float) -> void:
 	
 	if not was_on_flor and is_on_floor():
 		Utils.instantiate_scene_on_main(JUMP_EFFECT_SCENE, global_position)
+
+
+func _on_hurtbox_hit(damage) -> void:
+	if not invincible:
+		blink_animation_player.play("blink")
 
 
 func _create_dust_effect() -> void:
