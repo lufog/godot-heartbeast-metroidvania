@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://crs42jrvuev1w"]
+
+[ext_resource type="Script" path="res://camera.gd" id="1_tk7lf"]
+
+[node name="Camera" type="Camera2D"]
+current = true
+smoothing_enabled = true
+script = ExtResource("1_tk7lf")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

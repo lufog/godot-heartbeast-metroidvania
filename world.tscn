@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk1uhc1toir33"]
+[gd_scene load_steps=11 format=3 uid="uid://bk1uhc1toir33"]
 
 [ext_resource type="Texture2D" uid="uid://c2btpnpaca5gp" path="res://world/textures/tileset.png" id="1_rk447"]
 [ext_resource type="Texture2D" uid="uid://rgihfmalddnm" path="res://world/textures/slopes.png" id="2_r1u5d"]
 [ext_resource type="PackedScene" uid="uid://c4e8tqxhlxjxo" path="res://player/player.tscn" id="2_ugcw4"]
 [ext_resource type="PackedScene" uid="uid://ddndd0scluu1u" path="res://world/moving_platform.tscn" id="4_chkqd"]
+[ext_resource type="PackedScene" uid="uid://crs42jrvuev1w" path="res://camera.tscn" id="4_w6yyb"]
 [ext_resource type="Curve2D" uid="uid://7lqo316h3uf8" path="res://world/left_right.tres" id="5_1fral"]
 [ext_resource type="PackedScene" uid="uid://c4y6hd4l0rw1j" path="res://enemies/walking_enemy.tscn" id="6_3w76x"]
 
@@ -531,13 +532,11 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 262144, 1, 131072, 196608, 
 [node name="Player" parent="." instance=ExtResource("2_ugcw4")]
 position = Vector2(100, 128)
 
-[node name="CameraFollow" parent="Player" index="3"]
+[node name="CameraFollow" parent="Player" index="4"]
 remote_path = NodePath("../../Camera")
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" parent="." instance=ExtResource("4_w6yyb")]
 position = Vector2(100, 120)
-current = true
-smoothing_enabled = true
 
 [node name="MovingPlatform" parent="." instance=ExtResource("4_chkqd")]
 position = Vector2(40, 128)
@@ -552,4 +551,5 @@ curve = ExtResource("5_1fral")
 position = Vector2(22, 144)
 
 [editable path="Player"]
+[editable path="Player/Hurtbox"]
 [editable path="MovingPlatform2"]

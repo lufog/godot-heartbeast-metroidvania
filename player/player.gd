@@ -81,6 +81,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_hurtbox_hit(damage) -> void:
 	if not invincible:
+		Events.add_screen_shake.emit(0.4, 0.5)
 		stats.health -= damage
 		blink_animation_player.play("blink")
 
