@@ -4,6 +4,8 @@ const DUST_EFFECT_SCENE: PackedScene = preload("res://effects/dust_effect/dust_e
 const JUMP_EFFECT_SCENE: PackedScene =preload("res://effects/jump_effect/jump_effect.tscn")
 const BULLET_SCENE: PackedScene = preload("res://player/projectile/player_bullet.tscn")
 
+var stats = LoadedResources.player_stats
+
 @export var max_speed: float = 64
 @export var acceleration: float = 256
 @export var friction: float = 0.25
@@ -22,6 +24,10 @@ var is_jumping: bool = false
 @onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var fire_bullet_timer: Timer = $FireBulletTimer
+
+
+func _ready() -> void:
+	stats.player_died.connect(self._on_died)
 
 
 func _physics_process(delta: float) -> void:
@@ -75,7 +81,12 @@ func _physics_process(delta: float) -> void:
 
 func _on_hurtbox_hit(damage) -> void:
 	if not invincible:
+		stats.health -= damage
 		blink_animation_player.play("blink")
+
+
+func _on_died() -> void:
+	queue_free()
 
 
 func _create_dust_effect() -> void:
