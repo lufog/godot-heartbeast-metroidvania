@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk1uhc1toir33"]
+[gd_scene load_steps=12 format=3 uid="uid://bk1uhc1toir33"]
 
+[ext_resource type="PackedScene" uid="uid://f5d57twra0ee" path="res://ui/ui.tscn" id="1_cnrrn"]
 [ext_resource type="Texture2D" uid="uid://c2btpnpaca5gp" path="res://world/textures/tileset.png" id="1_rk447"]
 [ext_resource type="Texture2D" uid="uid://rgihfmalddnm" path="res://world/textures/slopes.png" id="2_r1u5d"]
 [ext_resource type="PackedScene" uid="uid://c4e8tqxhlxjxo" path="res://player/player.tscn" id="2_ugcw4"]
@@ -523,6 +524,8 @@ sources/0 = SubResource("TileSetAtlasSource_b3eia")
 sources/1 = SubResource("TileSetAtlasSource_busr1")
 
 [node name="World" type="Node"]
+
+[node name="UI" parent="." instance=ExtResource("1_cnrrn")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xvuw7")
