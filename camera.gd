@@ -10,7 +10,7 @@ func _ready() -> void:
 	Events.add_screen_shake.connect(self._screen_shake)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if shake > 0:
 		offset.x = randf_range(-shake, shake)
 		offset.y = randf_range(-shake, shake)
