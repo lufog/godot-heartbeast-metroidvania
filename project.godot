@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Metroidvania"
-run/main_scene="res://world.tscn"
+run/main_scene="res://menus/start_menu.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 config/icon="res://icon.png"
 

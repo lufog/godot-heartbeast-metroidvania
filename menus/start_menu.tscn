@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://g7ixxs603gp5"]
+
+[ext_resource type="Script" path="res://menus/start_menu.gd" id="1_o75h3"]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_o75h3")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
+offset_left = 112.0
+offset_top = 39.0
+offset_right = 208.0
+offset_bottom = 140.0
+
+[node name="Start" type="Button" parent="CenterContainer/Buttons"]
+offset_right = 96.0
+offset_bottom = 31.0
+text = "New Game"
+
+[node name="Load" type="Button" parent="CenterContainer/Buttons"]
+offset_top = 35.0
+offset_right = 96.0
+offset_bottom = 66.0
+text = "Load Game"
+
+[node name="Quit" type="Button" parent="CenterContainer/Buttons"]
+offset_top = 70.0
+offset_right = 96.0
+offset_bottom = 101.0
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/Buttons/Start" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Buttons/Load" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Buttons/Quit" to="." method="_on_quit_button_pressed"]
