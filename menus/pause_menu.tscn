@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp1ba7ysnmook"]
+
+[ext_resource type="Theme" uid="uid://bbml00tbkbt4l" path="res://ui/default_theme.tres" id="1_ox55a"]
+[ext_resource type="Script" path="res://menus/pause_menu.gd" id="2_cgvck"]
+
+[node name="PauseMenu" type="ColorRect"]
+process_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("1_ox55a")
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_cgvck")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Buttons" type="VBoxContainer" parent="CenterContainer"]
+offset_left = 129.0
+offset_top = 74.0
+offset_right = 191.0
+offset_bottom = 106.0
+
+[node name="Resume" type="Button" parent="CenterContainer/Buttons"]
+offset_right = 62.0
+offset_bottom = 14.0
+text = "Resume Game"
+
+[node name="Quit" type="Button" parent="CenterContainer/Buttons"]
+offset_top = 18.0
+offset_right = 62.0
+offset_bottom = 32.0
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/Buttons/Resume" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Buttons/Quit" to="." method="_on_quit_button_pressed"]
