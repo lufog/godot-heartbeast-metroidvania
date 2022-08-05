@@ -16,6 +16,7 @@ var stats = LoadedResources.player_stats
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping: bool = false
+var double_jump: bool = true
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var gun: Node2D = $Sprite/PlayerGun
@@ -52,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor():
 		is_jumping = false
+		double_jump = true
 	else:
 		# Apply gravity.
 		velocity.y += gravity * delta
@@ -60,6 +62,11 @@ func _physics_process(delta: float) -> void:
 		sprite_animation_player.play("jump")
 		if Input.is_action_just_released("jump") and velocity.y < -jump_force / 2:
 			velocity.y = -jump_force / 2
+		
+		if Input.is_action_just_pressed("jump") and double_jump:
+			Utils.instantiate_scene_on_main(JUMP_EFFECT_SCENE, global_position)
+			velocity.y = -jump_force * 0.75
+			double_jump = false
 	
 	if is_on_floor() or not coyote_timer.is_stopped():
 		if Input.is_action_just_pressed("jump"):
