@@ -12,6 +12,8 @@ var stats = LoadedResources.player_stats
 @export var acceleration: float = 256
 @export var friction: float = 0.25
 @export var jump_force: float = 128
+@export var wall_slide_speed: float = 48
+@export var max_wall_slide_speed: float = 128
 @export var max_slope_angle: float = 46
 @export var bullet_speed: float = 250
 @export var invincible := false
@@ -92,8 +94,28 @@ func _physics_process(delta: float) -> void:
 				Utils.instantiate_scene_on_main(JumpEffectScene, global_position)
 		
 		WALL_SLIDE:
-			if is_on_floor():
+			sprite_animation_player.play("wall_slide")
+			var wall_axis := _get_wall_axis()
+			if wall_axis != 0:
+				sprite.scale.x = wall_axis
+			
+			if wall_axis == 0 or is_on_floor():
 				state = MOVE
+			
+			if Input.is_action_just_pressed("jump"):
+				velocity.x = wall_axis * max_speed
+				velocity.y = -jump_force / 1.25
+				state = MOVE
+			
+			var direction := Input.get_axis("move_left", "move_right")
+			if direction != 0:
+				velocity.x = acceleration * direction * delta
+			
+			if Input.is_action_just_pressed("slide"):
+				wall_slide_speed = max_wall_slide_speed
+			
+			velocity.y = min(velocity.y + gravity * delta, wall_slide_speed)
+			move_and_slide()
 	
 	if Input.is_action_pressed("fire") and fire_bullet_timer.is_stopped():
 		_fire_bullet()
@@ -107,6 +129,12 @@ func _on_hurtbox_hit(damage) -> void:
 
 func _on_died() -> void:
 	queue_free()
+
+
+func _get_wall_axis() -> int:
+	var is_right_wall = test_move(transform, Vector2.RIGHT)
+	var is_left_wall = test_move(transform, Vector2.LEFT)
+	return int(is_left_wall) - int(is_right_wall)
 
 
 func _create_dust_effect() -> void:

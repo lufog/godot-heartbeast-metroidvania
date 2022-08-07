@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4e8tqxhlxjxo"]
+[gd_scene load_steps=15 format=3 uid="uid://c4e8tqxhlxjxo"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_20vd3"]
 [ext_resource type="Texture2D" uid="uid://b266r1gjl4rj1" path="res://player/textures/player.png" id="1_xnkhh"]
@@ -90,12 +90,29 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_mfv5l"]
+resource_name = "wall_slide"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8k452"]
 _data = {
 "RESET": SubResource("Animation_hli8j"),
 "idle": SubResource("Animation_ap5h0"),
 "jump": SubResource("Animation_xf7j3"),
-"run": SubResource("Animation_sll55")
+"run": SubResource("Animation_sll55"),
+"wall_slide": SubResource("Animation_mfv5l")
 }
 
 [sub_resource type="Animation" id="Animation_a68s5"]
