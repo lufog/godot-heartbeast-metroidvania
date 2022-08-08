@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2ih626cwhuko"
-path="res://.godot/imported/wall_dust_effect.png-96c323a723b455a4565bd2d72bf402b0.ctex"
+path="res://.godot/imported/wall_dust_effect.png-68c2f104bbcaabfc140e228be4f55f6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://effects/textures/wall_dust_effect.png"
-dest_files=["res://.godot/imported/wall_dust_effect.png-96c323a723b455a4565bd2d72bf402b0.ctex"]
+source_file="res://effects/wall_dust_effect/textures/wall_dust_effect.png"
+dest_files=["res://.godot/imported/wall_dust_effect.png-68c2f104bbcaabfc140e228be4f55f6e.ctex"]
 
 [params]
 

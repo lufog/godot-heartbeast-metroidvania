@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const DustEffectScene: PackedScene = preload("res://effects/dust_effect/dust_effect.tscn")
+const WallDustEffectScene: PackedScene = preload("res://effects/wall_dust_effect/wall_dust_effect.tscn")
 const JumpEffectScene: PackedScene =preload("res://effects/jump_effect/jump_effect.tscn")
 const BulletScene: PackedScene = preload("res://player/projectile/player_bullet.tscn")
 
@@ -12,7 +13,7 @@ var stats = LoadedResources.player_stats
 @export var acceleration: float = 256
 @export var friction: float = 0.25
 @export var jump_force: float = 128
-@export var wall_slide_speed: float = 48
+@export var wall_slide_speed: float = 32
 @export var max_wall_slide_speed: float = 128
 @export var max_slope_angle: float = 46
 @export var bullet_speed: float = 250
@@ -42,6 +43,7 @@ func _physics_process(delta: float) -> void:
 			if not is_on_floor() and is_on_wall():
 				state = WALL_SLIDE
 				double_jump = true
+				_create_dust_effect()
 			
 			var facing_direction: int = sign(get_local_mouse_position().x)
 			sprite.scale.x = facing_direction
@@ -106,15 +108,21 @@ func _physics_process(delta: float) -> void:
 				velocity.x = wall_axis * max_speed
 				velocity.y = -jump_force / 1.25
 				state = MOVE
+				var dust_effect_position := global_position + Vector2(4 * wall_axis, -2)
+				var dust_effect := Utils.instantiate_scene_on_main(WallDustEffectScene, dust_effect_position)
+				dust_effect.scale.x = wall_axis
 			
 			var direction := Input.get_axis("move_left", "move_right")
 			if direction != 0:
 				velocity.x = acceleration * direction * delta
 			
-			if Input.is_action_just_pressed("slide"):
-				wall_slide_speed = max_wall_slide_speed
+			var slide_speed: float
+			if Input.is_action_pressed("slide"):
+				slide_speed = max_wall_slide_speed
+			else:
+				slide_speed = wall_slide_speed
 			
-			velocity.y = min(velocity.y + gravity * delta, wall_slide_speed)
+			velocity.y = min(velocity.y + gravity * delta, slide_speed)
 			move_and_slide()
 	
 	if Input.is_action_pressed("fire") and fire_bullet_timer.is_stopped():

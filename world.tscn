@@ -542,7 +542,7 @@ remote_path = NodePath("../../Camera")
 position = Vector2(100, 120)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("4_chkqd")]
-position = Vector2(40, 128)
+position = Vector2(48, 128)
 
 [node name="MovingPlatform2" parent="." instance=ExtResource("4_chkqd")]
 position = Vector2(152, 96)
