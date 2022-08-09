@@ -15,6 +15,16 @@ _global_script_classes=[{
 "path": "res://collision_boxes/hurtbox.gd"
 }, {
 "base": "Resource",
+"class": &"MainInstances",
+"language": &"GDScript",
+"path": "res://main_instances.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://player/player.gd"
+}, {
+"base": "Resource",
 "class": &"PlayerStats",
 "language": &"GDScript",
 "path": "res://player/player_stats.gd"
@@ -26,6 +36,8 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "Hurtbox": "",
+"MainInstances": "",
+"Player": "",
 "PlayerStats": "",
 "Projectile": ""
 }

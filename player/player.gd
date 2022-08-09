@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 const DustEffectScene: PackedScene = preload("res://effects/dust_effect/dust_effect.tscn")
@@ -8,6 +9,7 @@ const BulletScene: PackedScene = preload("res://player/projectile/player_bullet.
 enum { MOVE, WALL_SLIDE }
 
 var stats = LoadedResources.player_stats
+var main_instances = LoadedResources.main_instances
 
 @export var max_speed: float = 64
 @export var acceleration: float = 256
@@ -35,6 +37,11 @@ var double_jump: bool = true
 
 func _ready() -> void:
 	stats.player_died.connect(self._on_died)
+	main_instances.player = self
+
+
+func _exit_tree() -> void:
+	main_instances.player = null
 
 
 func _physics_process(delta: float) -> void:
