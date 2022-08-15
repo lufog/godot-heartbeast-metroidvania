@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
 				velocity.x = clamp(velocity.x, -max_speed, max_speed)
 			else:
 				sprite_animation_player.play("idle")
-				velocity.x = lerp(velocity.x, 0, friction)
+				velocity.x = lerpf(velocity.x, 0, friction)
 			
 			if is_on_floor():
 				is_jumping = false

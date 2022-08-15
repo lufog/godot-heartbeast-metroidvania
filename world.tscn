@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bk1uhc1toir33"]
+[gd_scene load_steps=13 format=3 uid="uid://bk1uhc1toir33"]
 
 [ext_resource type="PackedScene" uid="uid://f5d57twra0ee" path="res://ui/ui.tscn" id="1_cnrrn"]
 [ext_resource type="Texture2D" uid="uid://c2btpnpaca5gp" path="res://world/textures/tileset.png" id="1_rk447"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://crs42jrvuev1w" path="res://camera.tscn" id="4_w6yyb"]
 [ext_resource type="Curve2D" uid="uid://7lqo316h3uf8" path="res://world/left_right.tres" id="5_1fral"]
 [ext_resource type="PackedScene" uid="uid://c4y6hd4l0rw1j" path="res://enemies/walking_enemy.tscn" id="6_3w76x"]
+[ext_resource type="PackedScene" uid="uid://dkrxfsy34p0j8" path="res://enemies/flying_enemy.tscn" id="9_7e26v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3eia"]
 texture = ExtResource("1_rk447")
@@ -552,6 +553,9 @@ curve = ExtResource("5_1fral")
 
 [node name="WalkingEnemy" parent="." instance=ExtResource("6_3w76x")]
 position = Vector2(22, 144)
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("9_7e26v")]
+position = Vector2(282, 74)
 
 [editable path="Player"]
 [editable path="Player/Hurtbox"]

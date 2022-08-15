@@ -2,5 +2,5 @@ class_name MainInstances
 extends Resource
 
 
-var player: Player = null
+var player: CharacterBody2D = null
 var world_camera: Camera2D = null
