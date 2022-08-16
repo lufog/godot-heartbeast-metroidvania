@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd3mip4yhii12"]
+
+[ext_resource type="Script" path="res://effects/enemy_death_effect/enemy_death_effect.gd" id="1_1qqm4"]
+[ext_resource type="PackedScene" path="res://effects/dust_effect/dust_effect.tscn" id="1_q4ly5"]
+
+[node name="EnemyDeathEffect" type="Node2D"]
+script = ExtResource("1_1qqm4")
+
+[node name="DustEffect" parent="." instance=ExtResource("1_q4ly5")]
+
+[node name="DustEffect2" parent="." instance=ExtResource("1_q4ly5")]
+position = Vector2(6, -9)
+
+[node name="DustEffect3" parent="." instance=ExtResource("1_q4ly5")]
+position = Vector2(-5, -12)
+
+[node name="DustEffect4" parent="." instance=ExtResource("1_q4ly5")]
+position = Vector2(-10, 3)
+
+[node name="DustEffect5" parent="." instance=ExtResource("1_q4ly5")]
+position = Vector2(-1, 11)
+
+[node name="DustEffect6" parent="." instance=ExtResource("1_q4ly5")]
+position = Vector2(11, 3)
+
+[connection signal="tree_exited" from="DustEffect6" to="." method="_on_dust_effect_last_tree_exited"]
