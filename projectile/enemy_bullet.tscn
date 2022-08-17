@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://c52vjsbew23vn"]
+
+[ext_resource type="PackedScene" path="res://projectile/projectile.tscn" id="1_4qcws"]
+[ext_resource type="Texture2D" uid="uid://dcm5qsthkpc8b" path="res://enemies/textures/enemy_bullet.png" id="2_7f66b"]
+
+[sub_resource type="Animation" id="Animation_g3uiq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_354eu"]
+resource_name = "animate"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2two2"]
+_data = {
+"RESET": SubResource("Animation_g3uiq"),
+"animate": SubResource("Animation_354eu")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n85la"]
+radius = 2.0
+
+[node name="EnemyBullet" instance=ExtResource("1_4qcws")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_7f66b")
+hframes = 2
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "animate"
+libraries = {
+"": SubResource("AnimationLibrary_2two2")
+}
+
+[node name="Hitbox" parent="." index="3"]
+collision_mask = 6
+
+[node name="Collision" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_n85la")
+
+[editable path="Hitbox"]

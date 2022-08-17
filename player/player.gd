@@ -4,7 +4,7 @@ extends CharacterBody2D
 const DustEffectScene: PackedScene = preload("res://effects/dust_effect/dust_effect.tscn")
 const WallDustEffectScene: PackedScene = preload("res://effects/wall_dust_effect/wall_dust_effect.tscn")
 const JumpEffectScene: PackedScene =preload("res://effects/jump_effect/jump_effect.tscn")
-const BulletScene: PackedScene = preload("res://player/projectile/player_bullet.tscn")
+const BulletScene: PackedScene = preload("res://projectile/player_bullet.tscn")
 
 enum { MOVE, WALL_SLIDE }
 

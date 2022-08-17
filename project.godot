@@ -32,7 +32,7 @@ _global_script_classes=[{
 "base": "Node2D",
 "class": &"Projectile",
 "language": &"GDScript",
-"path": "res://player/projectile/projectile.gd"
+"path": "res://projectile/projectile.gd"
 }]
 _global_script_class_icons={
 "Hurtbox": "",

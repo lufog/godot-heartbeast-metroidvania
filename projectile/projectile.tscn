@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://vethxhjqr2qe"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://player/projectile/projectile.gd" id="1_8itmy"]
+[ext_resource type="Script" path="res://projectile/projectile.gd" id="1_8itmy"]
 [ext_resource type="PackedScene" uid="uid://0480v2ocpexx" path="res://collision_boxes/hitbox.tscn" id="2_mmmaq"]
 
 [node name="Projectile" type="Node2D"]

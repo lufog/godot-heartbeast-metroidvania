@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://hvm56naakggr"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="PackedScene" uid="uid://vethxhjqr2qe" path="res://player/projectile/projectile.tscn" id="1_gt07k"]
-[ext_resource type="Texture2D" uid="uid://bv5vrjhh8farq" path="res://player/projectile/textures/player_bullet.png" id="2_stjwu"]
-[ext_resource type="Script" path="res://player/projectile/player_bullet.gd" id="2_tee7g"]
+[ext_resource type="PackedScene" path="res://projectile/projectile.tscn" id="1_gt07k"]
+[ext_resource type="Texture2D" path="res://projectile/textures/player_bullet.png" id="2_stjwu"]
+[ext_resource type="Script" path="res://projectile/player_bullet.gd" id="2_tee7g"]
 
 [sub_resource type="Animation" id="Animation_oyii8"]
 length = 0.001
