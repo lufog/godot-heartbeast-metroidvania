@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bk1uhc1toir33"]
+[gd_scene load_steps=15 format=3 uid="uid://bk1uhc1toir33"]
 
 [ext_resource type="PackedScene" uid="uid://f5d57twra0ee" path="res://ui/ui.tscn" id="1_cnrrn"]
 [ext_resource type="Texture2D" uid="uid://c2btpnpaca5gp" path="res://world/textures/tileset.png" id="1_rk447"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c4y6hd4l0rw1j" path="res://enemies/walking_enemy.tscn" id="6_3w76x"]
 [ext_resource type="PackedScene" uid="uid://dkrxfsy34p0j8" path="res://enemies/flying_enemy.tscn" id="9_7e26v"]
 [ext_resource type="PackedScene" uid="uid://da6w75uepd05r" path="res://enemies/plant_enemy.tscn" id="10_uh23w"]
+[ext_resource type="PackedScene" uid="uid://cu007otvs36ge" path="res://enemies/crawling_enemy.tscn" id="11_kwpn0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3eia"]
 texture = ExtResource("1_rk447")
@@ -564,6 +565,9 @@ position = Vector2(188, 128)
 [node name="PlantEnemy2" parent="." instance=ExtResource("10_uh23w")]
 position = Vector2(212, 16)
 rotation = 3.14159
+
+[node name="CrawlingEnemy" parent="." instance=ExtResource("11_kwpn0")]
+position = Vector2(220, 160)
 
 [editable path="Player"]
 [editable path="Player/Hurtbox"]
