@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tioj42nq7p2c"
-path="res://.godot/imported/player_missle.png-0fb22fe1c1713df3763bb9b42b5b9597.ctex"
+path="res://.godot/imported/player_missle.png-3d9571bb9c425508f1589c1df4ec7907.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/textures/player_missle.png"
-dest_files=["res://.godot/imported/player_missle.png-0fb22fe1c1713df3763bb9b42b5b9597.ctex"]
+source_file="res://projectile/textures/player_missle.png"
+dest_files=["res://.godot/imported/player_missle.png-3d9571bb9c425508f1589c1df4ec7907.ctex"]
 
 [params]
 

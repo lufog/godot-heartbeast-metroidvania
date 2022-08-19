@@ -5,6 +5,7 @@ const DustEffectScene: PackedScene = preload("res://effects/dust_effect/dust_eff
 const WallDustEffectScene: PackedScene = preload("res://effects/wall_dust_effect/wall_dust_effect.tscn")
 const JumpEffectScene: PackedScene =preload("res://effects/jump_effect/jump_effect.tscn")
 const BulletScene: PackedScene = preload("res://projectile/player_bullet.tscn")
+const MissleScene: PackedScene = preload("res://projectile/player_missle.tscn")
 
 enum { MOVE, WALL_SLIDE }
 
@@ -19,6 +20,7 @@ var main_instances = LoadedResources.main_instances
 @export var max_wall_slide_speed: float = 128
 @export var max_slope_angle: float = 46
 @export var bullet_speed: float = 250
+@export var missle_speed: float = 150
 @export var invincible := false
 
 var state := MOVE
@@ -134,6 +136,10 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("fire") and fire_bullet_timer.is_stopped():
 		_fire_bullet()
+	
+	if Input.is_action_pressed("fire_missle") and fire_bullet_timer.is_stopped():
+		_fire_missle()
+
 
 func _on_hurtbox_hit(damage) -> void:
 	if not invincible:
@@ -163,3 +169,12 @@ func _fire_bullet() -> void:
 	bullet.velocity = Vector2.RIGHT.rotated(gun.rotation) * bullet_speed
 	bullet.velocity.x *= sprite.scale.x
 	bullet.rotation = bullet.velocity.angle()
+
+
+func _fire_missle() -> void:
+	fire_bullet_timer.start()
+	var missle := Utils.instantiate_scene_on_main(MissleScene, muzzle_location.global_position)
+	missle.velocity = Vector2.RIGHT.rotated(gun.rotation) * missle_speed
+	missle.velocity.x *= sprite.scale.x
+	missle.rotation = missle.velocity.angle()
+	velocity -= missle.velocity * 0.25
