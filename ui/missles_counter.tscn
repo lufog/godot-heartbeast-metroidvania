@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh16500boswf8"]
+
+[ext_resource type="Script" path="res://ui/missles_counter.gd" id="1_qo2yb"]
+[ext_resource type="Texture2D" uid="uid://cniui8fus1cma" path="res://ui/textures/player_missile_icon.png" id="1_qsm06"]
+[ext_resource type="FontFile" uid="uid://dl08ad8mvwvw4" path="res://ui/fonts/pixel.ttf" id="3_ajx6m"]
+
+[node name="MisslesCounter" type="HBoxContainer"]
+offset_right = 15.0
+offset_bottom = 10.0
+theme_override_constants/separation = 2
+script = ExtResource("1_qo2yb")
+
+[node name="Icon" type="TextureRect" parent="."]
+offset_right = 8.0
+offset_bottom = 10.0
+texture = ExtResource("1_qsm06")
+
+[node name="Value" type="Label" parent="."]
+offset_left = 10.0
+offset_right = 15.0
+offset_bottom = 9.0
+theme_override_fonts/font = ExtResource("3_ajx6m")
+theme_override_font_sizes/font_size = 6
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 2
+percent_visible = -1.0

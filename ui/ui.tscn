@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://f5d57twra0ee"]
+[gd_scene load_steps=4 format=3 uid="uid://f5d57twra0ee"]
 
 [ext_resource type="PackedScene" uid="uid://dvs7oljxqbid5" path="res://ui/health_meter.tscn" id="1_5fmqj"]
 [ext_resource type="PackedScene" uid="uid://cp1ba7ysnmook" path="res://menus/pause_menu.tscn" id="2_uqcc5"]
+[ext_resource type="PackedScene" uid="uid://bh16500boswf8" path="res://ui/missles_counter.tscn" id="3_vf65c"]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -13,3 +14,9 @@ offset_bottom = 16.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_uqcc5")]
 visible = false
+
+[node name="MisslesCounter" parent="." instance=ExtResource("3_vf65c")]
+offset_left = 4.0
+offset_top = 19.0
+offset_right = 19.0
+offset_bottom = 29.0

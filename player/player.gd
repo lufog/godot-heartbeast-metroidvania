@@ -138,7 +138,9 @@ func _physics_process(delta: float) -> void:
 		_fire_bullet()
 	
 	if Input.is_action_pressed("fire_missle") and fire_bullet_timer.is_stopped():
-		_fire_missle()
+		if stats.missles > 0:
+			_fire_missle()
+			stats.missles -= 1
 
 
 func _on_hurtbox_hit(damage) -> void:
