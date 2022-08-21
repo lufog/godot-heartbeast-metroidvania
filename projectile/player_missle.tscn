@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c26244vf8thfe"]
+[gd_scene load_steps=9 format=3 uid="uid://c26244vf8thfe"]
 
 [ext_resource type="PackedScene" path="res://projectile/projectile.tscn" id="1_166u0"]
 [ext_resource type="Texture2D" uid="uid://tioj42nq7p2c" path="res://projectile/textures/player_missle.png" id="2_gh31w"]
+[ext_resource type="Script" path="res://projectile/player_missle.gd" id="2_sjcij"]
 [ext_resource type="Texture2D" uid="uid://cocu6xpksp2l6" path="res://effects/textures/particle.png" id="3_ohfdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5br4f"]
@@ -28,6 +29,7 @@ orbit_velocity_max = 0.0
 scale_curve = SubResource("CurveTexture_rw3vf")
 
 [node name="PlayerMissle" instance=ExtResource("1_166u0")]
+script = ExtResource("2_sjcij")
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_gh31w")
@@ -37,7 +39,7 @@ position = Vector2(-2.38419e-07, 0)
 scale = Vector2(2, 1.25)
 
 [node name="Hitbox" parent="." index="3"]
-collision_mask = 10
+collision_mask = 26
 damage = 3
 
 [node name="Collision" parent="Hitbox" index="0"]

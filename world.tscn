@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bk1uhc1toir33"]
+[gd_scene load_steps=16 format=3 uid="uid://bk1uhc1toir33"]
 
 [ext_resource type="PackedScene" uid="uid://f5d57twra0ee" path="res://ui/ui.tscn" id="1_cnrrn"]
 [ext_resource type="Texture2D" uid="uid://c2btpnpaca5gp" path="res://world/textures/tileset.png" id="1_rk447"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dkrxfsy34p0j8" path="res://enemies/flying_enemy.tscn" id="9_7e26v"]
 [ext_resource type="PackedScene" uid="uid://da6w75uepd05r" path="res://enemies/plant_enemy.tscn" id="10_uh23w"]
 [ext_resource type="PackedScene" uid="uid://cu007otvs36ge" path="res://enemies/crawling_enemy.tscn" id="11_kwpn0"]
+[ext_resource type="PackedScene" uid="uid://dsxmkkolx3jmo" path="res://world/brick.tscn" id="12_ug46j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3eia"]
 texture = ExtResource("1_rk447")
@@ -568,6 +569,15 @@ rotation = 3.14159
 
 [node name="CrawlingEnemy" parent="." instance=ExtResource("11_kwpn0")]
 position = Vector2(220, 160)
+
+[node name="Brick" parent="." instance=ExtResource("12_ug46j")]
+position = Vector2(240, 48)
+
+[node name="Brick2" parent="." instance=ExtResource("12_ug46j")]
+position = Vector2(240, 64)
+
+[node name="Brick3" parent="." instance=ExtResource("12_ug46j")]
+position = Vector2(240, 80)
 
 [editable path="Player"]
 [editable path="Player/Hurtbox"]

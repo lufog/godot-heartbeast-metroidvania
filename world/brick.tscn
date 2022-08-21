@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://dsxmkkolx3jmo"]
 
-[ext_resource type="Texture2D" path="res://world/textures/brick.png" id="1_qmxcf"]
+[ext_resource type="Texture2D" uid="uid://6n43733urrog" path="res://world/textures/brick.png" id="1_qmxcf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cogd"]
 size = Vector2(16, 16)
 
 [node name="Brick" type="StaticBody2D"]
+collision_layer = 18
+collision_mask = 0
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_qmxcf")
