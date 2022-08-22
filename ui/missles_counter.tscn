@@ -24,4 +24,3 @@ theme_override_font_sizes/font_size = 6
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 2
-percent_visible = -1.0

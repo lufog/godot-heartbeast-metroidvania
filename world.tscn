@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bk1uhc1toir33"]
+[gd_scene load_steps=17 format=3 uid="uid://bk1uhc1toir33"]
 
 [ext_resource type="PackedScene" uid="uid://f5d57twra0ee" path="res://ui/ui.tscn" id="1_cnrrn"]
 [ext_resource type="Texture2D" uid="uid://c2btpnpaca5gp" path="res://world/textures/tileset.png" id="1_rk447"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://da6w75uepd05r" path="res://enemies/plant_enemy.tscn" id="10_uh23w"]
 [ext_resource type="PackedScene" uid="uid://cu007otvs36ge" path="res://enemies/crawling_enemy.tscn" id="11_kwpn0"]
 [ext_resource type="PackedScene" uid="uid://dsxmkkolx3jmo" path="res://world/brick.tscn" id="12_ug46j"]
+[ext_resource type="PackedScene" uid="uid://c4q3uxlf8hj12" path="res://powerup/missles_powerup.tscn" id="13_4s477"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3eia"]
 texture = ExtResource("1_rk447")
@@ -578,6 +579,9 @@ position = Vector2(240, 64)
 
 [node name="Brick3" parent="." instance=ExtResource("12_ug46j")]
 position = Vector2(240, 80)
+
+[node name="MisslesPowerup" parent="." instance=ExtResource("13_4s477")]
+position = Vector2(288, 144)
 
 [editable path="Player"]
 [editable path="Player/Hurtbox"]

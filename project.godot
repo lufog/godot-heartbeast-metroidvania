@@ -29,6 +29,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://player/player_stats.gd"
 }, {
+"base": "Area2D",
+"class": &"Powerup",
+"language": &"GDScript",
+"path": "res://powerup/powerup.gd"
+}, {
 "base": "Node2D",
 "class": &"Projectile",
 "language": &"GDScript",
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "MainInstances": "",
 "Player": "",
 "PlayerStats": "",
+"Powerup": "",
 "Projectile": ""
 }
 
@@ -113,6 +119,7 @@ pause={
 2d_physics/layer_3="PlayerHurtbox"
 2d_physics/layer_4="EnemyHurtbox"
 2d_physics/layer_5="Brick"
+2d_physics/layer_6="Powerup"
 
 [physics]
 

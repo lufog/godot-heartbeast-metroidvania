@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4q3uxlf8hj12"]
+
+[ext_resource type="PackedScene" uid="uid://bs0j2et6qcl4v" path="res://powerup/powerup.tscn" id="1_27mgb"]
+[ext_resource type="Texture2D" uid="uid://tioj42nq7p2c" path="res://projectile/textures/player_missle.png" id="2_3sk5a"]
+[ext_resource type="Script" path="res://powerup/missles_powerup.gd" id="2_xfg4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hemt"]
+size = Vector2(10, 16)
+
+[node name="MisslesPowerup" instance=ExtResource("1_27mgb")]
+script = ExtResource("2_xfg4j")
+
+[node name="Sprite" parent="." index="0"]
+rotation = -1.5708
+texture = ExtResource("2_3sk5a")
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource("RectangleShape2D_5hemt")

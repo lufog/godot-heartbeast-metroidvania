@@ -35,6 +35,7 @@ var double_jump: bool = true
 @onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var fire_bullet_timer: Timer = $FireBulletTimer
+@onready var powerup_detector: Area2D = $PowerupDetector
 
 
 func _ready() -> void:
@@ -138,7 +139,7 @@ func _physics_process(delta: float) -> void:
 		_fire_bullet()
 	
 	if Input.is_action_pressed("fire_missle") and fire_bullet_timer.is_stopped():
-		if stats.missles > 0:
+		if stats.missles_unlocked and stats.missles > 0:
 			_fire_missle()
 			stats.missles -= 1
 
@@ -180,3 +181,8 @@ func _fire_missle() -> void:
 	missle.velocity.x *= sprite.scale.x
 	missle.rotation = missle.velocity.angle()
 	velocity -= missle.velocity * 0.25
+
+
+func _on_powerup_detector_area_entered(area: Area2D) -> void:
+	if area is Powerup:
+		area._pickup()

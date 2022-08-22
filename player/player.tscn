@@ -211,6 +211,15 @@ collision_layer = 4
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_ihbif")
 
+[node name="PowerupDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="Collision" type="CollisionShape2D" parent="PowerupDetector"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_ihbif")
+
 [connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]
+[connection signal="area_entered" from="PowerupDetector" to="." method="_on_powerup_detector_area_entered"]
 
 [editable path="Hurtbox"]
