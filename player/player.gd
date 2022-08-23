@@ -9,6 +9,8 @@ const MissleScene: PackedScene = preload("res://projectile/player_missle.tscn")
 
 enum { MOVE, WALL_SLIDE }
 
+signal hit_door(door: Door)
+
 var stats = LoadedResources.player_stats
 var main_instances = LoadedResources.main_instances
 
