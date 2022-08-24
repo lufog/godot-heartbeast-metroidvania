@@ -11,3 +11,8 @@ func _on_body_entered(player: Player) -> void:
 	if active:
 		player.hit_door.emit(self)
 		active = false
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if not active:
+		active = true

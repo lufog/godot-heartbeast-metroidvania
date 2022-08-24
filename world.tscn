@@ -12,7 +12,7 @@ script = ExtResource("1_68jmo")
 [node name="UI" parent="." instance=ExtResource("1_cnrrn")]
 
 [node name="Player" parent="." instance=ExtResource("2_ugcw4")]
-position = Vector2(100, 128)
+position = Vector2(272, 96)
 max_speed = null
 acceleration = null
 friction = null
@@ -28,7 +28,7 @@ invincible = null
 remote_path = NodePath("../../Camera")
 
 [node name="Camera" parent="." instance=ExtResource("4_w6yyb")]
-position = Vector2(100, 120)
+position = Vector2(272, 88)
 
 [node name="Level_01" parent="." instance=ExtResource("5_ob76k")]
 
