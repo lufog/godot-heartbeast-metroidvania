@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh7017fhk87f7"]
+
+[ext_resource type="PackedScene" uid="uid://b5fjfp3e85plo" path="res://enemies/enemy.tscn" id="1_mh5ty"]
+[ext_resource type="Texture2D" uid="uid://ca36g5idxqqi8" path="res://enemies/textures/boss_enemy_body.png" id="3_cmpx3"]
+[ext_resource type="Texture2D" uid="uid://c5nspgal2x3u4" path="res://enemies/textures/boss_enemy_head.png" id="4_qu7wh"]
+[ext_resource type="Texture2D" uid="uid://cxdgoc834yk4p" path="res://enemies/textures/boss_enemy_wing.png" id="5_63j8m"]
+[ext_resource type="Texture2D" uid="uid://bdbos6insdukd" path="res://enemies/textures/boss_enemy_leg1.png" id="6_87cj5"]
+[ext_resource type="Texture2D" uid="uid://ck4oqitq6i8m1" path="res://enemies/textures/boss_enemy_leg2.png" id="7_7bh57"]
+[ext_resource type="Texture2D" uid="uid://bx5s4psyf5fwk" path="res://enemies/textures/boss_enemy_leg3.png" id="8_wprtp"]
+
+[node name="BossEnemy" instance=ExtResource("1_mh5ty")]
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2(0, 1)
+texture = ExtResource("3_cmpx3")
+
+[node name="HeadSprite" type="Sprite2D" parent="Sprite" index="0"]
+position = Vector2(0, -7)
+texture = ExtResource("4_qu7wh")
+
+[node name="LeftWingSprite" type="Sprite2D" parent="Sprite" index="1"]
+show_behind_parent = true
+position = Vector2(-10, -18)
+texture = ExtResource("5_63j8m")
+offset = Vector2(-21, -5)
+
+[node name="RightWingSprite" type="Sprite2D" parent="Sprite" index="2"]
+show_behind_parent = true
+position = Vector2(10, -18)
+texture = ExtResource("5_63j8m")
+offset = Vector2(21, -5)
+flip_h = true
+
+[node name="LeftUpperLeg" type="Sprite2D" parent="Sprite" index="3"]
+position = Vector2(-12, -12)
+texture = ExtResource("6_87cj5")
+offset = Vector2(-4, 1)
+
+[node name="MiddleSegment" type="Sprite2D" parent="Sprite/LeftUpperLeg" index="0"]
+position = Vector2(-12, 3)
+texture = ExtResource("7_7bh57")
+offset = Vector2(-2, 4)
+
+[node name="EndSegment" type="Sprite2D" parent="Sprite/LeftUpperLeg/MiddleSegment" index="0"]
+position = Vector2(-6, 10)
+texture = ExtResource("8_wprtp")
+offset = Vector2(1, 2)
+
+[node name="EndPoint" type="Position2D" parent="Sprite/LeftUpperLeg/MiddleSegment/EndSegment" index="0"]
+position = Vector2(3, 5)
+
+[node name="RightUpperLeg" type="Sprite2D" parent="Sprite" index="4"]
+position = Vector2(12, -12)
+texture = ExtResource("6_87cj5")
+offset = Vector2(4, 1)
+flip_h = true
+
+[node name="MiddleSegment" type="Sprite2D" parent="Sprite/RightUpperLeg" index="0"]
+position = Vector2(12, 3)
+texture = ExtResource("7_7bh57")
+offset = Vector2(2, 4)
+flip_h = true
+
+[node name="EndSegment" type="Sprite2D" parent="Sprite/RightUpperLeg/MiddleSegment" index="0"]
+position = Vector2(6, 10)
+texture = ExtResource("8_wprtp")
+offset = Vector2(-1, 2)
+flip_h = true
+
+[node name="EndPoint" type="Position2D" parent="Sprite/RightUpperLeg/MiddleSegment/EndSegment" index="0"]
+position = Vector2(-3, 5)
+
+[node name="LeftLowerLeg" type="Sprite2D" parent="Sprite" index="5"]
+position = Vector2(-9, 0)
+rotation = -0.261799
+texture = ExtResource("6_87cj5")
+offset = Vector2(-4, 1)
+
+[node name="MiddleSegment" type="Sprite2D" parent="Sprite/LeftLowerLeg" index="0"]
+position = Vector2(-12, 3)
+rotation = -0.436332
+texture = ExtResource("7_7bh57")
+offset = Vector2(-2, 4)
+
+[node name="EndSegment" type="Sprite2D" parent="Sprite/LeftLowerLeg/MiddleSegment" index="0"]
+position = Vector2(-6, 10)
+texture = ExtResource("8_wprtp")
+offset = Vector2(1, 2)
+
+[node name="EndPoint" type="Position2D" parent="Sprite/LeftLowerLeg/MiddleSegment/EndSegment" index="0"]
+position = Vector2(3, 5)
+
+[node name="RightLowerLeg" type="Sprite2D" parent="Sprite" index="6"]
+position = Vector2(9, 0)
+rotation = 0.261799
+texture = ExtResource("6_87cj5")
+offset = Vector2(4, 1)
+flip_h = true
+
+[node name="MiddleSegment" type="Sprite2D" parent="Sprite/RightLowerLeg" index="0"]
+position = Vector2(12, 3)
+rotation = 0.436332
+texture = ExtResource("7_7bh57")
+offset = Vector2(2, 4)
+flip_h = true
+
+[node name="EndSegment" type="Sprite2D" parent="Sprite/RightLowerLeg/MiddleSegment" index="0"]
+position = Vector2(6, 10)
+texture = ExtResource("8_wprtp")
+offset = Vector2(-1, 2)
+flip_h = true
+
+[node name="EndPoint" type="Position2D" parent="Sprite/RightLowerLeg/MiddleSegment/EndSegment" index="0"]
+position = Vector2(-3, 5)
