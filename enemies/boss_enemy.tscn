@@ -46,7 +46,7 @@ position = Vector2(-6, 10)
 texture = ExtResource("8_wprtp")
 offset = Vector2(1, 2)
 
-[node name="EndPoint" type="Position2D" parent="Sprite/LeftUpperLeg/MiddleSegment/EndSegment" index="0"]
+[node name="EndPoint" type="Marker2D" parent="Sprite/LeftUpperLeg/MiddleSegment/EndSegment" index="0"]
 position = Vector2(3, 5)
 
 [node name="RightUpperLeg" type="Sprite2D" parent="Sprite" index="4"]
@@ -67,7 +67,7 @@ texture = ExtResource("8_wprtp")
 offset = Vector2(-1, 2)
 flip_h = true
 
-[node name="EndPoint" type="Position2D" parent="Sprite/RightUpperLeg/MiddleSegment/EndSegment" index="0"]
+[node name="EndPoint" type="Marker2D" parent="Sprite/RightUpperLeg/MiddleSegment/EndSegment" index="0"]
 position = Vector2(-3, 5)
 
 [node name="LeftLowerLeg" type="Sprite2D" parent="Sprite" index="5"]
@@ -79,15 +79,17 @@ offset = Vector2(-4, 1)
 [node name="MiddleSegment" type="Sprite2D" parent="Sprite/LeftLowerLeg" index="0"]
 position = Vector2(-12, 3)
 rotation = -0.436332
+scale = Vector2(1, 1)
 texture = ExtResource("7_7bh57")
 offset = Vector2(-2, 4)
 
 [node name="EndSegment" type="Sprite2D" parent="Sprite/LeftLowerLeg/MiddleSegment" index="0"]
 position = Vector2(-6, 10)
+scale = Vector2(1, 1)
 texture = ExtResource("8_wprtp")
 offset = Vector2(1, 2)
 
-[node name="EndPoint" type="Position2D" parent="Sprite/LeftLowerLeg/MiddleSegment/EndSegment" index="0"]
+[node name="EndPoint" type="Marker2D" parent="Sprite/LeftLowerLeg/MiddleSegment/EndSegment" index="0"]
 position = Vector2(3, 5)
 
 [node name="RightLowerLeg" type="Sprite2D" parent="Sprite" index="6"]
@@ -100,15 +102,83 @@ flip_h = true
 [node name="MiddleSegment" type="Sprite2D" parent="Sprite/RightLowerLeg" index="0"]
 position = Vector2(12, 3)
 rotation = 0.436332
+scale = Vector2(1, 1)
 texture = ExtResource("7_7bh57")
 offset = Vector2(2, 4)
 flip_h = true
 
 [node name="EndSegment" type="Sprite2D" parent="Sprite/RightLowerLeg/MiddleSegment" index="0"]
 position = Vector2(6, 10)
+scale = Vector2(1, 1)
 texture = ExtResource("8_wprtp")
 offset = Vector2(-1, 2)
 flip_h = true
 
-[node name="EndPoint" type="Position2D" parent="Sprite/RightLowerLeg/MiddleSegment/EndSegment" index="0"]
+[node name="EndPoint" type="Marker2D" parent="Sprite/RightLowerLeg/MiddleSegment/EndSegment" index="0"]
 position = Vector2(-3, 5)
+
+[node name="Skeleton" type="Skeleton2D" parent="." index="1"]
+
+[node name="LUpperLegBone" type="Bone2D" parent="Skeleton" index="0"]
+position = Vector2(-12, -11)
+rest = Transform2D(1, 0, 0, 1, -12, -11)
+
+[node name="MiddleSegmentBone" type="Bone2D" parent="Skeleton/LUpperLegBone" index="0"]
+position = Vector2(-12, 3)
+rest = Transform2D(1, 0, 0, 1, -12, 3)
+
+[node name="EndSegmentBone" type="Bone2D" parent="Skeleton/LUpperLegBone/MiddleSegmentBone" index="0"]
+position = Vector2(-6, 10)
+rest = Transform2D(1, 0, 0, 1, -6, 10)
+auto_calculate_length_and_angle = false
+length = 6.0
+bone_angle = 60.0
+
+[node name="RUpperLegBone" type="Bone2D" parent="Skeleton" index="1"]
+position = Vector2(12, -11)
+rest = Transform2D(1, 0, 0, 1, 12, -11)
+
+[node name="MiddleSegmentBone" type="Bone2D" parent="Skeleton/RUpperLegBone" index="0"]
+position = Vector2(12, 3)
+rest = Transform2D(1, 0, 0, 1, 12, 3)
+
+[node name="EndSegmentBone" type="Bone2D" parent="Skeleton/RUpperLegBone/MiddleSegmentBone" index="0"]
+position = Vector2(6, 10)
+rest = Transform2D(1, 0, 0, 1, 6, 10)
+auto_calculate_length_and_angle = false
+length = 6.0
+bone_angle = 120.0
+
+[node name="LLowerLegBone" type="Bone2D" parent="Skeleton" index="2"]
+position = Vector2(-9, 1)
+rotation = -0.261799
+rest = Transform2D(0.965926, -0.258819, 0.258819, 0.965926, -9, 1)
+
+[node name="MiddleSegmentBone" type="Bone2D" parent="Skeleton/LLowerLegBone" index="0"]
+position = Vector2(-12, 3)
+rotation = -0.436332
+rest = Transform2D(0.906308, -0.422618, 0.422618, 0.906308, -12, 3)
+
+[node name="EndSegmentBone" type="Bone2D" parent="Skeleton/LLowerLegBone/MiddleSegmentBone" index="0"]
+position = Vector2(-6, 10)
+rest = Transform2D(1, 5.96046e-08, -5.96046e-08, 1, -6, 10)
+auto_calculate_length_and_angle = false
+length = 6.0
+bone_angle = 60.0
+
+[node name="RLowerLegBone" type="Bone2D" parent="Skeleton" index="3"]
+position = Vector2(9, 1)
+rotation = 0.261799
+rest = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 9, 1)
+
+[node name="MiddleSegmentBone" type="Bone2D" parent="Skeleton/RLowerLegBone" index="0"]
+position = Vector2(12, 3)
+rotation = 0.436332
+rest = Transform2D(0.906308, 0.422618, -0.422618, 0.906308, 12, 3)
+
+[node name="EndSegmentBone" type="Bone2D" parent="Skeleton/RLowerLegBone/MiddleSegmentBone" index="0"]
+position = Vector2(6, 10)
+rest = Transform2D(1, -5.96046e-08, 5.96046e-08, 1, 6, 10)
+auto_calculate_length_and_angle = false
+length = 6.0
+bone_angle = 120.0

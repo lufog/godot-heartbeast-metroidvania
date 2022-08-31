@@ -17,12 +17,12 @@ func _physics_process(delta: float) -> void:
 	if wall_ray_cast.is_colliding():
 		global_position = wall_ray_cast.get_collision_point()
 		var normal := wall_ray_cast.get_collision_normal()
-		rotation = normal.rotated(deg2rad(90)).angle()
+		rotation = normal.rotated(deg_to_rad(90)).angle()
 	else:
-		floor_ray_cast.rotation = deg2rad(-max_speed * 10 * walking_direction * delta)
+		floor_ray_cast.rotation = deg_to_rad(-max_speed * 10 * walking_direction * delta)
 		if floor_ray_cast.is_colliding():
 			global_position = floor_ray_cast.get_collision_point()
 			var normal := floor_ray_cast.get_collision_normal()
-			rotation = normal.rotated(deg2rad(90)).angle()
+			rotation = normal.rotated(deg_to_rad(90)).angle()
 		else:
-			rotation += deg2rad(20 * walking_direction)
+			rotation += deg_to_rad(20 * walking_direction)

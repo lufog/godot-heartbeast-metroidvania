@@ -86,10 +86,10 @@ shape = SubResource("RectangleShape2D_ktn7s")
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_nq0g7")
 
-[node name="BulletSpawnPoint" type="Position2D" parent="." index="6"]
+[node name="BulletSpawnPoint" type="Marker2D" parent="." index="6"]
 position = Vector2(0, -9)
 
-[node name="FireDirection" type="Position2D" parent="." index="7"]
+[node name="FireDirection" type="Marker2D" parent="." index="7"]
 position = Vector2(0, -17)
 
 [editable path="Hurtbox"]
