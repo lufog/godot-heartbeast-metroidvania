@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh7017fhk87f7"]
+[gd_scene load_steps=13 format=3 uid="uid://dh7017fhk87f7"]
 
 [ext_resource type="PackedScene" uid="uid://b5fjfp3e85plo" path="res://enemies/enemy.tscn" id="1_mh5ty"]
 [ext_resource type="Texture2D" uid="uid://ca36g5idxqqi8" path="res://enemies/textures/boss_enemy_body.png" id="3_cmpx3"]
@@ -7,6 +7,142 @@
 [ext_resource type="Texture2D" uid="uid://bdbos6insdukd" path="res://enemies/textures/boss_enemy_leg1.png" id="6_87cj5"]
 [ext_resource type="Texture2D" uid="uid://ck4oqitq6i8m1" path="res://enemies/textures/boss_enemy_leg2.png" id="7_7bh57"]
 [ext_resource type="Texture2D" uid="uid://bx5s4psyf5fwk" path="res://enemies/textures/boss_enemy_leg3.png" id="8_wprtp"]
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_yqm3q"]
+target_nodepath = NodePath("UpperLegBoneTarget")
+tip_nodepath = NodePath("UpperLegBoneL/MiddleSegmentBone/EndSegmentBone/Tip")
+ccdik_data_chain_length = 3
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("UpperLegBoneL")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 45.0
+joint_data/0/constraint_angle_max = -45.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("UpperLegBoneL/MiddleSegmentBone")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 45.0
+joint_data/1/constraint_angle_max = -45.0
+joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("UpperLegBoneL/MiddleSegmentBone/EndSegmentBone")
+joint_data/2/rotate_from_joint = false
+joint_data/2/enable_constraint = true
+joint_data/2/constraint_angle_min = 45.0
+joint_data/2/constraint_angle_max = -45.0
+joint_data/2/constraint_angle_invert = true
+joint_data/2/constraint_in_localspace = true
+joint_data/2/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_vdaaf"]
+target_nodepath = NodePath("UpperLegTargetR")
+tip_nodepath = NodePath("UpperLegBoneR/MiddleSegmentBone/EndSegmentBone/Tip")
+ccdik_data_chain_length = 3
+joint_data/0/bone_index = 3
+joint_data/0/bone2d_node = NodePath("UpperLegBoneR")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -45.0
+joint_data/0/constraint_angle_max = 45.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 4
+joint_data/1/bone2d_node = NodePath("UpperLegBoneR/MiddleSegmentBone")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = -45.0
+joint_data/1/constraint_angle_max = 45.0
+joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+joint_data/2/bone_index = 5
+joint_data/2/bone2d_node = NodePath("UpperLegBoneR/MiddleSegmentBone/EndSegmentBone")
+joint_data/2/rotate_from_joint = false
+joint_data/2/enable_constraint = true
+joint_data/2/constraint_angle_min = -45.0
+joint_data/2/constraint_angle_max = 45.0
+joint_data/2/constraint_angle_invert = true
+joint_data/2/constraint_in_localspace = true
+joint_data/2/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_66cev"]
+target_nodepath = NodePath("LowerLegTargetL")
+tip_nodepath = NodePath("LowerLegBoneL/MiddleBone/EndBone/Tip")
+ccdik_data_chain_length = 3
+joint_data/0/bone_index = 6
+joint_data/0/bone2d_node = NodePath("LowerLegBoneL")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -45.0
+joint_data/0/constraint_angle_max = 45.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 7
+joint_data/1/bone2d_node = NodePath("LowerLegBoneL/MiddleBone")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = -45.0
+joint_data/1/constraint_angle_max = 45.0
+joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+joint_data/2/bone_index = 8
+joint_data/2/bone2d_node = NodePath("LowerLegBoneL/MiddleBone/EndBone")
+joint_data/2/rotate_from_joint = false
+joint_data/2/enable_constraint = true
+joint_data/2/constraint_angle_min = -45.0
+joint_data/2/constraint_angle_max = 45.0
+joint_data/2/constraint_angle_invert = true
+joint_data/2/constraint_in_localspace = true
+joint_data/2/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_y23l4"]
+target_nodepath = NodePath("LowerLegTargetR")
+tip_nodepath = NodePath("LowerLegBoneR/MiddleBone/EndBone/Tip")
+ccdik_data_chain_length = 3
+joint_data/0/bone_index = 9
+joint_data/0/bone2d_node = NodePath("LowerLegBoneR")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -45.0
+joint_data/0/constraint_angle_max = 45.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 10
+joint_data/1/bone2d_node = NodePath("LowerLegBoneR/MiddleBone")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = -45.0
+joint_data/1/constraint_angle_max = 45.0
+joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+joint_data/2/bone_index = 11
+joint_data/2/bone2d_node = NodePath("LowerLegBoneR/MiddleBone/EndBone")
+joint_data/2/rotate_from_joint = false
+joint_data/2/enable_constraint = true
+joint_data/2/constraint_angle_min = -45.0
+joint_data/2/constraint_angle_max = 45.0
+joint_data/2/constraint_angle_invert = true
+joint_data/2/constraint_in_localspace = true
+joint_data/2/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_2ey8d"]
+enabled = true
+modification_count = 5
+modifications/0 = SubResource("SkeletonModification2DCCDIK_yqm3q")
+modifications/1 = SubResource("SkeletonModification2DCCDIK_vdaaf")
+modifications/2 = SubResource("SkeletonModification2DCCDIK_66cev")
+modifications/3 = SubResource("SkeletonModification2DCCDIK_y23l4")
 
 [node name="BossEnemy" instance=ExtResource("1_mh5ty")]
 
@@ -31,154 +167,185 @@ texture = ExtResource("5_63j8m")
 offset = Vector2(21, -5)
 flip_h = true
 
-[node name="LeftUpperLeg" type="Sprite2D" parent="Sprite" index="3"]
-position = Vector2(-12, -12)
-texture = ExtResource("6_87cj5")
-offset = Vector2(-4, 1)
+[node name="Skeleton" type="Skeleton2D" parent="Sprite" index="3"]
+position = Vector2(0, -1)
+modification_stack = SubResource("SkeletonModificationStack2D_2ey8d")
 
-[node name="MiddleSegment" type="Sprite2D" parent="Sprite/LeftUpperLeg" index="0"]
-position = Vector2(-12, 3)
-texture = ExtResource("7_7bh57")
-offset = Vector2(-2, 4)
-
-[node name="EndSegment" type="Sprite2D" parent="Sprite/LeftUpperLeg/MiddleSegment" index="0"]
-position = Vector2(-6, 10)
-texture = ExtResource("8_wprtp")
-offset = Vector2(1, 2)
-
-[node name="EndPoint" type="Marker2D" parent="Sprite/LeftUpperLeg/MiddleSegment/EndSegment" index="0"]
-position = Vector2(3, 5)
-
-[node name="RightUpperLeg" type="Sprite2D" parent="Sprite" index="4"]
-position = Vector2(12, -12)
-texture = ExtResource("6_87cj5")
-offset = Vector2(4, 1)
-flip_h = true
-
-[node name="MiddleSegment" type="Sprite2D" parent="Sprite/RightUpperLeg" index="0"]
-position = Vector2(12, 3)
-texture = ExtResource("7_7bh57")
-offset = Vector2(2, 4)
-flip_h = true
-
-[node name="EndSegment" type="Sprite2D" parent="Sprite/RightUpperLeg/MiddleSegment" index="0"]
-position = Vector2(6, 10)
-texture = ExtResource("8_wprtp")
-offset = Vector2(-1, 2)
-flip_h = true
-
-[node name="EndPoint" type="Marker2D" parent="Sprite/RightUpperLeg/MiddleSegment/EndSegment" index="0"]
-position = Vector2(-3, 5)
-
-[node name="LeftLowerLeg" type="Sprite2D" parent="Sprite" index="5"]
-position = Vector2(-9, 0)
-rotation = -0.261799
-texture = ExtResource("6_87cj5")
-offset = Vector2(-4, 1)
-
-[node name="MiddleSegment" type="Sprite2D" parent="Sprite/LeftLowerLeg" index="0"]
-position = Vector2(-12, 3)
-rotation = -0.436332
-scale = Vector2(1, 1)
-texture = ExtResource("7_7bh57")
-offset = Vector2(-2, 4)
-
-[node name="EndSegment" type="Sprite2D" parent="Sprite/LeftLowerLeg/MiddleSegment" index="0"]
-position = Vector2(-6, 10)
-scale = Vector2(1, 1)
-texture = ExtResource("8_wprtp")
-offset = Vector2(1, 2)
-
-[node name="EndPoint" type="Marker2D" parent="Sprite/LeftLowerLeg/MiddleSegment/EndSegment" index="0"]
-position = Vector2(3, 5)
-
-[node name="RightLowerLeg" type="Sprite2D" parent="Sprite" index="6"]
-position = Vector2(9, 0)
-rotation = 0.261799
-texture = ExtResource("6_87cj5")
-offset = Vector2(4, 1)
-flip_h = true
-
-[node name="MiddleSegment" type="Sprite2D" parent="Sprite/RightLowerLeg" index="0"]
-position = Vector2(12, 3)
-rotation = 0.436332
-scale = Vector2(1, 1)
-texture = ExtResource("7_7bh57")
-offset = Vector2(2, 4)
-flip_h = true
-
-[node name="EndSegment" type="Sprite2D" parent="Sprite/RightLowerLeg/MiddleSegment" index="0"]
-position = Vector2(6, 10)
-scale = Vector2(1, 1)
-texture = ExtResource("8_wprtp")
-offset = Vector2(-1, 2)
-flip_h = true
-
-[node name="EndPoint" type="Marker2D" parent="Sprite/RightLowerLeg/MiddleSegment/EndSegment" index="0"]
-position = Vector2(-3, 5)
-
-[node name="Skeleton" type="Skeleton2D" parent="." index="1"]
-
-[node name="LUpperLegBone" type="Bone2D" parent="Skeleton" index="0"]
+[node name="UpperLegBoneL" type="Bone2D" parent="Sprite/Skeleton" index="0"]
 position = Vector2(-12, -11)
 rest = Transform2D(1, 0, 0, 1, -12, -11)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="MiddleSegmentBone" type="Bone2D" parent="Skeleton/LUpperLegBone" index="0"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneL" index="0"]
+texture = ExtResource("6_87cj5")
+offset = Vector2(-4, 1)
+metadata/_edit_lock_ = true
+
+[node name="MiddleBone" type="Bone2D" parent="Sprite/Skeleton/UpperLegBoneL" index="1"]
 position = Vector2(-12, 3)
 rest = Transform2D(1, 0, 0, 1, -12, 3)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="EndSegmentBone" type="Bone2D" parent="Skeleton/LUpperLegBone/MiddleSegmentBone" index="0"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneL/MiddleBone" index="0"]
+texture = ExtResource("7_7bh57")
+offset = Vector2(-2, 4)
+metadata/_edit_lock_ = true
+
+[node name="EndBone" type="Bone2D" parent="Sprite/Skeleton/UpperLegBoneL/MiddleBone" index="1"]
 position = Vector2(-6, 10)
 rest = Transform2D(1, 0, 0, 1, -6, 10)
 auto_calculate_length_and_angle = false
 length = 6.0
 bone_angle = 60.0
+metadata/_local_pose_override_enabled_ = true
 
-[node name="RUpperLegBone" type="Bone2D" parent="Skeleton" index="1"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneL/MiddleBone/EndBone" index="0"]
+texture = ExtResource("8_wprtp")
+offset = Vector2(1, 2)
+metadata/_edit_lock_ = true
+
+[node name="Tip" type="Marker2D" parent="Sprite/Skeleton/UpperLegBoneL/MiddleBone/EndBone" index="1"]
+position = Vector2(3, 5)
+
+[node name="UpperLegTargetL" type="Marker2D" parent="Sprite/Skeleton" index="1"]
+position = Vector2(-27, 7)
+
+[node name="UpperLegBoneR" type="Bone2D" parent="Sprite/Skeleton" index="2"]
 position = Vector2(12, -11)
 rest = Transform2D(1, 0, 0, 1, 12, -11)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="MiddleSegmentBone" type="Bone2D" parent="Skeleton/RUpperLegBone" index="0"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneR" index="0"]
+texture = ExtResource("6_87cj5")
+offset = Vector2(4, 1)
+flip_h = true
+
+[node name="MiddleBone" type="Bone2D" parent="Sprite/Skeleton/UpperLegBoneR" index="1"]
 position = Vector2(12, 3)
 rest = Transform2D(1, 0, 0, 1, 12, 3)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="EndSegmentBone" type="Bone2D" parent="Skeleton/RUpperLegBone/MiddleSegmentBone" index="0"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneR/MiddleBone" index="0"]
+texture = ExtResource("7_7bh57")
+offset = Vector2(2, 4)
+flip_h = true
+
+[node name="EndBone" type="Bone2D" parent="Sprite/Skeleton/UpperLegBoneR/MiddleBone" index="1"]
 position = Vector2(6, 10)
 rest = Transform2D(1, 0, 0, 1, 6, 10)
 auto_calculate_length_and_angle = false
 length = 6.0
 bone_angle = 120.0
+metadata/_local_pose_override_enabled_ = true
 
-[node name="LLowerLegBone" type="Bone2D" parent="Skeleton" index="2"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneR/MiddleBone/EndBone" index="0"]
+texture = ExtResource("8_wprtp")
+offset = Vector2(-1, 2)
+flip_h = true
+
+[node name="Tip" type="Marker2D" parent="Sprite/Skeleton/UpperLegBoneR/MiddleBone/EndBone" index="1"]
+position = Vector2(-3, 5)
+
+[node name="UpperLegTargetR" type="Marker2D" parent="Sprite/Skeleton" index="3"]
+position = Vector2(27, 7)
+
+[node name="LowerLegBoneL" type="Bone2D" parent="Sprite/Skeleton" index="4"]
 position = Vector2(-9, 1)
 rotation = -0.261799
+scale = Vector2(1, 1)
 rest = Transform2D(0.965926, -0.258819, 0.258819, 0.965926, -9, 1)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="MiddleSegmentBone" type="Bone2D" parent="Skeleton/LLowerLegBone" index="0"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneL" index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("6_87cj5")
+offset = Vector2(-4, 1)
+
+[node name="MiddleBone" type="Bone2D" parent="Sprite/Skeleton/LowerLegBoneL" index="1"]
 position = Vector2(-12, 3)
 rotation = -0.436332
+scale = Vector2(1, 1)
 rest = Transform2D(0.906308, -0.422618, 0.422618, 0.906308, -12, 3)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="EndSegmentBone" type="Bone2D" parent="Skeleton/LLowerLegBone/MiddleSegmentBone" index="0"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneL/MiddleBone" index="0"]
+position = Vector2(0, -5.24521e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("7_7bh57")
+offset = Vector2(-2, 4)
+
+[node name="EndBone" type="Bone2D" parent="Sprite/Skeleton/LowerLegBoneL/MiddleBone" index="1"]
 position = Vector2(-6, 10)
 rest = Transform2D(1, 5.96046e-08, -5.96046e-08, 1, -6, 10)
 auto_calculate_length_and_angle = false
 length = 6.0
 bone_angle = 60.0
+metadata/_local_pose_override_enabled_ = true
 
-[node name="RLowerLegBone" type="Bone2D" parent="Skeleton" index="3"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneL/MiddleBone/EndBone" index="0"]
+position = Vector2(1.90735e-06, -8.58307e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("8_wprtp")
+offset = Vector2(1, 2)
+
+[node name="Tip" type="Marker2D" parent="Sprite/Skeleton/LowerLegBoneL/MiddleBone/EndBone" index="1"]
+position = Vector2(3, 4.99999)
+scale = Vector2(1, 1)
+
+[node name="LowerLegTargetL" type="Marker2D" parent="Sprite/Skeleton" index="5"]
+position = Vector2(-12, 21)
+
+[node name="LowerLegBoneR" type="Bone2D" parent="Sprite/Skeleton" index="6"]
 position = Vector2(9, 1)
 rotation = 0.261799
+scale = Vector2(1, 1)
 rest = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 9, 1)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="MiddleSegmentBone" type="Bone2D" parent="Skeleton/RLowerLegBone" index="0"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneR" index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("6_87cj5")
+offset = Vector2(4, 1)
+flip_h = true
+
+[node name="MiddleBone" type="Bone2D" parent="Sprite/Skeleton/LowerLegBoneR" index="1"]
 position = Vector2(12, 3)
 rotation = 0.436332
+scale = Vector2(1, 1)
 rest = Transform2D(0.906308, 0.422618, -0.422618, 0.906308, 12, 3)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="EndSegmentBone" type="Bone2D" parent="Skeleton/RLowerLegBone/MiddleSegmentBone" index="0"]
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneR/MiddleBone" index="0"]
+position = Vector2(-1.90735e-06, -3.8147e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("7_7bh57")
+offset = Vector2(2, 4)
+flip_h = true
+
+[node name="EndBone" type="Bone2D" parent="Sprite/Skeleton/LowerLegBoneR/MiddleBone" index="1"]
 position = Vector2(6, 10)
 rest = Transform2D(1, -5.96046e-08, 5.96046e-08, 1, 6, 10)
 auto_calculate_length_and_angle = false
 length = 6.0
 bone_angle = 120.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneR/MiddleBone/EndBone" index="0"]
+position = Vector2(-1.90735e-06, -9.53674e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("8_wprtp")
+offset = Vector2(-1, 2)
+flip_h = true
+
+[node name="Tip" type="Marker2D" parent="Sprite/Skeleton/LowerLegBoneR/MiddleBone/EndBone" index="1"]
+position = Vector2(-3, 4.99999)
+scale = Vector2(1, 1)
+
+[node name="LowerLegTargetR" type="Marker2D" parent="Sprite/Skeleton" index="7"]
+position = Vector2(12, 21)
+
+[node name="Hurtbox" parent="." index="3"]
+visible = false
+
+[node name="Hitbox" parent="." index="4"]
+visible = false
