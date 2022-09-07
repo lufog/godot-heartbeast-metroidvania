@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvmwd1w2udlod"]
+
+[ext_resource type="Texture2D" uid="uid://c3jwya7bsiek5" path="res://enemies/textures/spikes.png" id="1_ryc18"]
+[ext_resource type="PackedScene" uid="uid://0480v2ocpexx" path="res://collision_boxes/hitbox.tscn" id="2_aepqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkaed"]
+size = Vector2(10, 10)
+
+[node name="Spikes" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ryc18")
+centered = false
+
+[node name="Hitbox" parent="." instance=ExtResource("2_aepqd")]
+collision_mask = 4
+
+[node name="Collision" parent="Hitbox" index="0"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_hkaed")
+
+[editable path="Hitbox"]

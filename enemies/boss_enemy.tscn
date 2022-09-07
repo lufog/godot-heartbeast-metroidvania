@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://dh7017fhk87f7"]
+[gd_scene load_steps=19 format=3 uid="uid://dh7017fhk87f7"]
 
 [ext_resource type="PackedScene" uid="uid://b5fjfp3e85plo" path="res://enemies/enemy.tscn" id="1_mh5ty"]
+[ext_resource type="Script" path="res://enemies/boss_enemy.gd" id="2_qiqpg"]
 [ext_resource type="Texture2D" uid="uid://ca36g5idxqqi8" path="res://enemies/textures/boss_enemy_body.png" id="3_cmpx3"]
 [ext_resource type="Texture2D" uid="uid://c5nspgal2x3u4" path="res://enemies/textures/boss_enemy_head.png" id="4_qu7wh"]
 [ext_resource type="Texture2D" uid="uid://cxdgoc834yk4p" path="res://enemies/textures/boss_enemy_wing.png" id="5_63j8m"]
@@ -142,7 +143,7 @@ editor/draw_gizmo = false
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_djuxx"]
 enabled = true
-modification_count = 4
+modification_count = 8
 modifications/0 = SubResource("SkeletonModification2DCCDIK_sw4jq")
 modifications/1 = SubResource("SkeletonModification2DCCDIK_m0qsa")
 modifications/2 = SubResource("SkeletonModification2DCCDIK_stdwv")
@@ -361,10 +362,15 @@ radius = 16.0
 length = 22.0
 
 [node name="BossEnemy" instance=ExtResource("1_mh5ty")]
+script = ExtResource("2_qiqpg")
+acceleration = 70
+max_speed = 50.0
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(0, 1)
 texture = ExtResource("3_cmpx3")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="HeadSprite" type="Sprite2D" parent="Sprite" index="0"]
 position = Vector2(0, -7)
@@ -474,7 +480,6 @@ position = Vector2(27, 6)
 [node name="LowerLegBoneL" type="Bone2D" parent="Sprite/Skeleton" index="4"]
 position = Vector2(-9, 1)
 rotation = -0.261799
-scale = Vector2(1, 1)
 rest = Transform2D(0.965926, -0.258819, 0.258819, 0.965926, -9, 1)
 editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
@@ -486,7 +491,6 @@ offset = Vector2(-4, 1)
 [node name="MiddleBone" type="Bone2D" parent="Sprite/Skeleton/LowerLegBoneL" index="1"]
 position = Vector2(-12, 3)
 rotation = -0.436332
-scale = Vector2(1, 1)
 rest = Transform2D(0.906308, -0.422618, 0.422618, 0.906308, -12, 3)
 editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
@@ -514,12 +518,11 @@ offset = Vector2(1, 2)
 position = Vector2(3, 4.99999)
 
 [node name="LowerLegTargetL" type="Marker2D" parent="Sprite/Skeleton" index="5"]
-position = Vector2(-11, 21)
+position = Vector2(-7, 24)
 
 [node name="LowerLegBoneR" type="Bone2D" parent="Sprite/Skeleton" index="6"]
 position = Vector2(9, 1)
 rotation = 0.261799
-scale = Vector2(1, 1)
 rest = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 9, 1)
 editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
@@ -532,7 +535,6 @@ flip_h = true
 [node name="MiddleBone" type="Bone2D" parent="Sprite/Skeleton/LowerLegBoneR" index="1"]
 position = Vector2(12, 3)
 rotation = 0.436332
-scale = Vector2(1, 1)
 rest = Transform2D(0.906308, 0.422618, -0.422618, 0.906308, 12, 3)
 editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
@@ -562,7 +564,7 @@ flip_h = true
 position = Vector2(-3, 4.99999)
 
 [node name="LowerLegTargetR" type="Marker2D" parent="Sprite/Skeleton" index="7"]
-position = Vector2(11, 21)
+position = Vector2(7, 24)
 
 [node name="Collision" parent="." index="1"]
 visible = false
@@ -581,7 +583,21 @@ shape = SubResource("CircleShape2D_kpgyg")
 shape = SubResource("SeparationRayShape2D_asqgu")
 
 [node name="EnemyStats" parent="." index="5"]
-max_health = 100
+max_health = 10
+
+[node name="WallCheckLeft" type="RayCast2D" parent="." index="6"]
+target_position = Vector2(-20, 0)
+collision_mask = 2
+
+[node name="WallCheckRight" type="RayCast2D" parent="." index="7"]
+target_position = Vector2(20, 0)
+collision_mask = 2
+
+[node name="FireBulletTimer" type="Timer" parent="." index="8"]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="FireBulletTimer" to="." method="_on_fire_bullet_timer_timeout"]
 
 [editable path="Hurtbox"]
 [editable path="Hitbox"]
