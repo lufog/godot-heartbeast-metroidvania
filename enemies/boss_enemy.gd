@@ -37,5 +37,10 @@ func fire_bullet() -> void:
 	bullet.velocity = bullet_velocity
 
 
+func _on_enemy_stats_enemy_died() -> void:
+	died.emit()
+	super._on_enemy_stats_enemy_died()
+
+
 func _on_fire_bullet_timer_timeout() -> void:
 	fire_bullet()

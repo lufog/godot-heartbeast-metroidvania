@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxah7wf8nn3h"]
+[gd_scene load_steps=15 format=3 uid="uid://cxah7wf8nn3h"]
 
 [ext_resource type="PackedScene" uid="uid://cdgvwrqmbff6e" path="res://levels/level.tscn" id="1_d4hfb"]
 [ext_resource type="Texture2D" uid="uid://c2btpnpaca5gp" path="res://world/textures/tileset.png" id="2_ix50i"]
+[ext_resource type="Script" path="res://levels/level_02.gd" id="2_m4kdj"]
 [ext_resource type="Texture2D" uid="uid://rgihfmalddnm" path="res://world/textures/slopes.png" id="3_561i1"]
 [ext_resource type="PackedScene" uid="uid://dexdps5ft4s0j" path="res://world/door.tscn" id="4_wr6q6"]
 [ext_resource type="Resource" uid="uid://bqogac2oetsen" path="res://door_connections/01_link_02.tres" id="5_ji3y1"]
 [ext_resource type="PackedScene" uid="uid://dh7017fhk87f7" path="res://enemies/boss_enemy.tscn" id="6_sigq5"]
 [ext_resource type="PackedScene" uid="uid://dvmwd1w2udlod" path="res://world/spikes.tscn" id="7_1avp6"]
+[ext_resource type="PackedScene" uid="uid://c222pyhmrbbm1" path="res://world/trigger.tscn" id="9_2j4mx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3eia"]
 texture = ExtResource("2_ix50i")
@@ -522,7 +524,20 @@ terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_b3eia")
 sources/1 = SubResource("TileSetAtlasSource_busr1")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec4qu"]
+size = Vector2(14, 32)
+
+[sub_resource type="TileSet" id="TileSet_y0aws"]
+physics_layer_0/collision_layer = 0
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Floor"
+terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
+sources/0 = SubResource("TileSetAtlasSource_b3eia")
+sources/1 = SubResource("TileSetAtlasSource_busr1")
+
 [node name="Level_02" instance=ExtResource("1_d4hfb")]
+script = ExtResource("2_m4kdj")
 
 [node name="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_i6dal")
@@ -550,3 +565,20 @@ rotation = -1.5708
 [node name="Spikes3" parent="AllSpikes" index="2" instance=ExtResource("7_1avp6")]
 position = Vector2(288, 16)
 rotation = -1.5708
+
+[node name="Trigger" parent="." index="4" instance=ExtResource("9_2j4mx")]
+position = Vector2(56, 64)
+
+[node name="Collision" parent="Trigger" index="0"]
+shape = SubResource("RectangleShape2D_ec4qu")
+
+[node name="BlockDoor" type="TileMap" parent="." index="5"]
+visible = false
+tile_set = SubResource("TileSet_y0aws")
+format = 2
+layer_0/tile_data = PackedInt32Array(196609, 196608, 0, 262145, 196608, 2)
+
+[connection signal="died" from="BossEnemy" to="." method="_on_boss_enemy_died"]
+[connection signal="area_triggered" from="Trigger" to="." method="_on_trigger_area_triggered"]
+
+[editable path="Trigger"]
