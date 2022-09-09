@@ -146,6 +146,15 @@ func _physics_process(delta: float) -> void:
 			stats.missles -= 1
 
 
+func save() -> Dictionary:
+	return {
+		"filename": scene_file_path,
+		"parent": get_parent().get_path(),
+		"position_x": position.x,
+		"position_y": position.y,
+	}
+
+
 func _on_hurtbox_hit(damage) -> void:
 	if not invincible:
 		Events.add_screen_shake.emit(0.4, 0.5)

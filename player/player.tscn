@@ -164,7 +164,7 @@ _data = {
 "blink": SubResource("Animation_xtk75")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Persists"]]
 collision_mask = 2
 floor_constant_speed = true
 floor_snap_length = 4.0
