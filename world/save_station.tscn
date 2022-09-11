@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2ts3b83dt145"]
+
+[ext_resource type="Texture2D" uid="uid://ch0kh0oc7iogt" path="res://world/textures/save_station.png" id="1_52ank"]
+[ext_resource type="Script" path="res://world/save_station.gd" id="1_mdtsi"]
+[ext_resource type="Texture2D" uid="uid://ci5c4if5im1ky" path="res://ui/textures/white_square.png" id="3_ncjx5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrg71"]
+size = Vector2(16, 19)
+
+[sub_resource type="Animation" id="Animation_5p6dr"]
+resource_name = "save"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WhiteSpaceSprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1.25), Vector2(1, 1.25), Vector2(1e-05, 1.25)]
+}
+
+[sub_resource type="Animation" id="Animation_rtjy5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WhiteSpaceSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1.25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aebgd"]
+_data = {
+"RESET": SubResource("Animation_rtjy5"),
+"save": SubResource("Animation_5p6dr")
+}
+
+[node name="SaveStation" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_mdtsi")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("1_52ank")
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-13, 0, -9, -4, 9, -4, 13, 0)
+
+[node name="SaveArea" type="Area2D" parent="."]
+position = Vector2(0, -15)
+collision_layer = 0
+
+[node name="Collision" type="CollisionShape2D" parent="SaveArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_nrg71")
+
+[node name="WhiteSpaceSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(1, 1.25)
+texture = ExtResource("3_ncjx5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aebgd")
+}
+
+[connection signal="body_entered" from="SaveArea" to="." method="_on_save_area_body_entered"]

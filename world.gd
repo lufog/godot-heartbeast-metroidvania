@@ -7,6 +7,10 @@ var main_instances := LoadedResources.main_instances
 
 
 func _ready() -> void:
+	if SaveLoad.is_loading:
+		SaveLoad.load_game()
+		SaveLoad.is_loading = false
+	
 	main_instances.player.hit_door.connect(self._on_player_hit_door)
 
 

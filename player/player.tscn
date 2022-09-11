@@ -165,6 +165,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Persists"]]
+z_index = 1
 collision_mask = 2
 floor_constant_speed = true
 floor_snap_length = 4.0

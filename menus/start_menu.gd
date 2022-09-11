@@ -9,7 +9,8 @@ func _on_start_button_pressed() -> void:
 
 
 func _on_load_button_pressed() -> void:
-	pass # Replace with function body.
+	SaveLoad.is_loading = true
+	_scene_tree.change_scene("res://world.tscn")
 
 
 func _on_quit_button_pressed() -> void:

@@ -3,6 +3,8 @@ extends Node
 
 const _SAVEFILE_PATH := "user://savegame.save"
 
+var is_loading := false
+
 
 func save_game() -> void:
 	var save_file := File.new()

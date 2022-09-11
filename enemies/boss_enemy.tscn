@@ -143,7 +143,7 @@ editor/draw_gizmo = false
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_djuxx"]
 enabled = true
-modification_count = 16
+modification_count = 24
 modifications/0 = SubResource("SkeletonModification2DCCDIK_sw4jq")
 modifications/1 = SubResource("SkeletonModification2DCCDIK_m0qsa")
 modifications/2 = SubResource("SkeletonModification2DCCDIK_stdwv")
@@ -152,6 +152,14 @@ modifications/4 = SubResource("SkeletonModification2DCCDIK_sw4jq")
 modifications/5 = SubResource("SkeletonModification2DCCDIK_m0qsa")
 modifications/6 = SubResource("SkeletonModification2DCCDIK_stdwv")
 modifications/7 = SubResource("SkeletonModification2DCCDIK_g8quw")
+modifications/8 = SubResource("SkeletonModification2DCCDIK_sw4jq")
+modifications/9 = SubResource("SkeletonModification2DCCDIK_m0qsa")
+modifications/10 = SubResource("SkeletonModification2DCCDIK_stdwv")
+modifications/11 = SubResource("SkeletonModification2DCCDIK_g8quw")
+modifications/12 = SubResource("SkeletonModification2DCCDIK_sw4jq")
+modifications/13 = SubResource("SkeletonModification2DCCDIK_m0qsa")
+modifications/14 = SubResource("SkeletonModification2DCCDIK_stdwv")
+modifications/15 = SubResource("SkeletonModification2DCCDIK_g8quw")
 
 [sub_resource type="Animation" id="Animation_bfjdq"]
 length = 0.001

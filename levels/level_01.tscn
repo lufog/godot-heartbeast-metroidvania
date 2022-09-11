@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://xj6xon4tomqb"]
+[gd_scene load_steps=18 format=3 uid="uid://xj6xon4tomqb"]
 
 [ext_resource type="PackedScene" uid="uid://cdgvwrqmbff6e" path="res://levels/level.tscn" id="1_b8kfb"]
 [ext_resource type="Texture2D" uid="uid://c2btpnpaca5gp" path="res://world/textures/tileset.png" id="2_11wqh"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dsxmkkolx3jmo" path="res://world/brick.tscn" id="10_nunyw"]
 [ext_resource type="PackedScene" uid="uid://c4q3uxlf8hj12" path="res://powerup/missles_powerup.tscn" id="11_85aom"]
 [ext_resource type="Resource" uid="uid://bqogac2oetsen" path="res://door_connections/01_link_02.tres" id="13_icjm0"]
+[ext_resource type="PackedScene" uid="uid://b2ts3b83dt145" path="res://world/save_station.tscn" id="14_scer3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3eia"]
 texture = ExtResource("2_11wqh")
@@ -575,5 +576,8 @@ position = Vector2(288, 144)
 position = Vector2(312, 80)
 connection = ExtResource("13_icjm0")
 new_level_path = "res://levels/level_02.tscn"
+
+[node name="SaveStation" parent="." index="13" instance=ExtResource("14_scer3")]
+position = Vector2(271, 96)
 
 [editable path="MovingPlatform2"]
