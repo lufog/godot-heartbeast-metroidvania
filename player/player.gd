@@ -35,6 +35,7 @@ var double_jump: bool = true
 @onready var muzzle_location: Node2D = $Sprite/PlayerGun/Sprite/MuzzleLocation
 @onready var sprite_animation_player: AnimationPlayer = $SpriteAnimationPlayer
 @onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
+@onready var camera_follow: RemoteTransform2D = $CameraFollow
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var fire_bullet_timer: Timer = $FireBulletTimer
 @onready var powerup_detector: Area2D = $PowerupDetector
@@ -43,6 +44,7 @@ var double_jump: bool = true
 func _ready() -> void:
 	stats.player_died.connect(self._on_died)
 	main_instances.player = self
+	_assign_camera.call_deferred()
 
 
 func _exit_tree() -> void:
@@ -170,6 +172,10 @@ func _get_wall_axis() -> int:
 	var is_right_wall = test_move(transform, Vector2.RIGHT)
 	var is_left_wall = test_move(transform, Vector2.LEFT)
 	return int(is_left_wall) - int(is_right_wall)
+
+
+func _assign_camera() -> void:
+	camera_follow.remote_path = main_instances.world_camera.get_path()
 
 
 func _create_dust_effect() -> void:

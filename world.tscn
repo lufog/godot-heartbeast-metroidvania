@@ -13,16 +13,6 @@ script = ExtResource("1_68jmo")
 
 [node name="Player" parent="." instance=ExtResource("2_ugcw4")]
 position = Vector2(293, 96)
-max_speed = null
-acceleration = null
-friction = null
-jump_force = null
-wall_slide_speed = null
-max_wall_slide_speed = null
-max_slope_angle = null
-bullet_speed = null
-missle_speed = null
-invincible = null
 
 [node name="CameraFollow" parent="Player" index="4"]
 remote_path = NodePath("../../Camera")

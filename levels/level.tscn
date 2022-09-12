@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_5jny0"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["Persists"]]
 script = ExtResource("1_5jny0")
 
 [node name="TileMap" type="TileMap" parent="."]
