@@ -7,25 +7,22 @@ var is_loading := false
 
 
 func save_game() -> void:
-	var save_file := File.new()
-	save_file.open(_SAVEFILE_PATH, File.WRITE)
+	var save_file := FileAccess.open(_SAVEFILE_PATH, FileAccess.WRITE)
 	var persisting_nodes := get_tree().get_nodes_in_group("Persists")
 	for node in persisting_nodes:
 		var node_data = node.save()
 		save_file.store_line(JSON.stringify(node_data))
-	save_file.close()
 
 
 func load_game() -> void:
-	var save_file := File.new()
-	if not save_file.file_exists(_SAVEFILE_PATH):
+	if not FileAccess.file_exists(_SAVEFILE_PATH):
 		return
 	
 	var persisting_nodes := get_tree().get_nodes_in_group("Persists")
 	for node in persisting_nodes:
 		node.queue_free()
-		
-	save_file.open(_SAVEFILE_PATH, File.READ)
+	
+	var save_file := FileAccess.open(_SAVEFILE_PATH, FileAccess.READ)
 	while not save_file.eof_reached():
 		var node_data = JSON.parse_string(save_file.get_line())
 		if node_data != null:
@@ -37,4 +34,3 @@ func load_game() -> void:
 						or property == "position_x" or property == "position_y"):
 					continue
 				new_node.set(property, node_data[property])
-	save_file.close()

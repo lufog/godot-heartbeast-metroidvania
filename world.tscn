@@ -12,13 +12,13 @@ script = ExtResource("1_68jmo")
 [node name="UI" parent="." instance=ExtResource("1_cnrrn")]
 
 [node name="Player" parent="." instance=ExtResource("2_ugcw4")]
-position = Vector2(293, 96)
+position = Vector2(103, 128)
 
 [node name="CameraFollow" parent="Player" index="4"]
 remote_path = NodePath("../../Camera")
 
 [node name="Camera" parent="." instance=ExtResource("4_w6yyb")]
-position = Vector2(293, 88)
+position = Vector2(103, 120)
 
 [node name="Level_01" parent="." instance=ExtResource("5_ob76k")]
 
