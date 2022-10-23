@@ -17,7 +17,8 @@ func _process(_delta: float) -> void:
 		offset.x = randf_range(-shake, shake)
 		offset.y = randf_range(-shake, shake)
 
-func _exit_tree() -> void:
+func queue_free() -> void:
+	super.queue_free()
 	main_instances.world_camera = null
 
 

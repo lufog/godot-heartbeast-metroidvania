@@ -38,17 +38,12 @@ var double_jump: bool = true
 @onready var camera_follow: RemoteTransform2D = $CameraFollow
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var fire_bullet_timer: Timer = $FireBulletTimer
-@onready var powerup_detector: Area2D = $PowerupDetector
 
 
 func _ready() -> void:
 	stats.player_died.connect(self._on_died)
 	main_instances.player = self
 	_assign_camera.call_deferred()
-
-
-func _exit_tree() -> void:
-	main_instances.player = null
 
 
 func _physics_process(delta: float) -> void:
@@ -155,6 +150,12 @@ func save() -> Dictionary:
 		"position_x": position.x,
 		"position_y": position.y,
 	}
+
+
+
+func queue_free() -> void:
+	super.queue_free()
+	main_instances.player = null
 
 
 func _on_hurtbox_hit(damage) -> void:

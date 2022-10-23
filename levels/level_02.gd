@@ -3,7 +3,6 @@ extends "res://levels/level.gd"
 
 const PLAYER_BIT := 2
 
-@onready var boss_enemy: CharacterBody2D = $BossEnemy
 @onready var block_door: TileMap = $BlockDoor
 
 

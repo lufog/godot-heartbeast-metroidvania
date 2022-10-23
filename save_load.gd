@@ -5,10 +5,12 @@ const _SAVEFILE_PATH := "user://savegame.save"
 
 var is_loading := false
 
+@onready var _scene_tree := get_tree()
+
 
 func save_game() -> void:
 	var save_file := FileAccess.open(_SAVEFILE_PATH, FileAccess.WRITE)
-	var persisting_nodes := get_tree().get_nodes_in_group("Persists")
+	var persisting_nodes := _scene_tree.get_nodes_in_group("Persists")
 	for node in persisting_nodes:
 		var node_data = node.save()
 		save_file.store_line(JSON.stringify(node_data))
@@ -18,7 +20,7 @@ func load_game() -> void:
 	if not FileAccess.file_exists(_SAVEFILE_PATH):
 		return
 	
-	var persisting_nodes := get_tree().get_nodes_in_group("Persists")
+	var persisting_nodes := _scene_tree.get_nodes_in_group("Persists")
 	for node in persisting_nodes:
 		node.queue_free()
 	
