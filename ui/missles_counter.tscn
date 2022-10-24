@@ -11,11 +11,13 @@ theme_override_constants/separation = 2
 script = ExtResource("1_qo2yb")
 
 [node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
 offset_right = 8.0
 offset_bottom = 10.0
 texture = ExtResource("1_qsm06")
 
 [node name="Value" type="Label" parent="."]
+layout_mode = 2
 offset_left = 10.0
 offset_right = 15.0
 offset_bottom = 9.0

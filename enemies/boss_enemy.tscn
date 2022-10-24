@@ -409,7 +409,6 @@ modification_stack = SubResource("SkeletonModificationStack2D_djuxx")
 position = Vector2(-12, -11)
 rest = Transform2D(1, 0, 0, 1, -12, -11)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneL" index="0"]
 texture = ExtResource("6_87cj5")
@@ -420,7 +419,6 @@ metadata/_edit_lock_ = true
 position = Vector2(-12, 3)
 rest = Transform2D(1, 0, 0, 1, -12, 3)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneL/MiddleBone" index="0"]
 texture = ExtResource("7_7bh57")
@@ -434,7 +432,6 @@ auto_calculate_length_and_angle = false
 length = 6.0
 bone_angle = 60.0
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneL/MiddleBone/EndBone" index="0"]
 texture = ExtResource("8_wprtp")
@@ -451,7 +448,6 @@ position = Vector2(-27, 6)
 position = Vector2(12, -11)
 rest = Transform2D(1, 0, 0, 1, 12, -11)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneR" index="0"]
 texture = ExtResource("6_87cj5")
@@ -462,7 +458,6 @@ flip_h = true
 position = Vector2(12, 3)
 rest = Transform2D(1, 0, 0, 1, 12, 3)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneR/MiddleBone" index="0"]
 texture = ExtResource("7_7bh57")
@@ -476,7 +471,6 @@ auto_calculate_length_and_angle = false
 length = 6.0
 bone_angle = 120.0
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/UpperLegBoneR/MiddleBone/EndBone" index="0"]
 texture = ExtResource("8_wprtp")
@@ -494,7 +488,6 @@ position = Vector2(-9, 1)
 rotation = -0.261799
 rest = Transform2D(0.965926, -0.258819, 0.258819, 0.965926, -9, 1)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneL" index="0"]
 texture = ExtResource("6_87cj5")
@@ -505,7 +498,6 @@ position = Vector2(-12, 3)
 rotation = -0.436332
 rest = Transform2D(0.906308, -0.422618, 0.422618, 0.906308, -12, 3)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneL/MiddleBone" index="0"]
 position = Vector2(0, -5.24521e-06)
@@ -519,7 +511,6 @@ auto_calculate_length_and_angle = false
 length = 6.0
 bone_angle = 60.0
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneL/MiddleBone/EndBone" index="0"]
 position = Vector2(1.90735e-06, -8.58307e-06)
@@ -537,7 +528,6 @@ position = Vector2(9, 1)
 rotation = 0.261799
 rest = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 9, 1)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneR" index="0"]
 texture = ExtResource("6_87cj5")
@@ -549,7 +539,6 @@ position = Vector2(12, 3)
 rotation = 0.436332
 rest = Transform2D(0.906308, 0.422618, -0.422618, 0.906308, 12, 3)
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneR/MiddleBone" index="0"]
 position = Vector2(-1.90735e-06, -3.8147e-06)
@@ -564,7 +553,6 @@ auto_calculate_length_and_angle = false
 length = 6.0
 bone_angle = 120.0
 editor_settings/show_bone_gizmo = false
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Sprite/Skeleton/LowerLegBoneR/MiddleBone/EndBone" index="0"]
 position = Vector2(-1.90735e-06, -9.53674e-06)

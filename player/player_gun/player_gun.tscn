@@ -11,5 +11,5 @@ position = Vector2(-2, -2)
 texture = ExtResource("1_uw2kh")
 centered = false
 
-[node name="MuzzleLocation" type="Position2D" parent="Sprite"]
+[node name="MuzzleLocation" type="Marker2D" parent="Sprite"]
 position = Vector2(13, 2)

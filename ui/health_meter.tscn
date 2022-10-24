@@ -5,11 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://dca4l1o4gagnq" path="res://ui/textures/health_meter.png" id="2_q86cn"]
 
 [node name="HealthMeter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 21.0
 offset_bottom = 12.0
 script = ExtResource("1_0ntlg")
 
 [node name="Empty" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 21.0
 offset_bottom = 12.0
 texture = ExtResource("1_nh27o")
@@ -17,6 +20,7 @@ ignore_texture_size = true
 stretch_mode = 1
 
 [node name="Full" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 20.0
 offset_bottom = 12.0
 texture = ExtResource("2_q86cn")

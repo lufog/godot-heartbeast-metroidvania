@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c26244vf8thfe"]
 
-[ext_resource type="PackedScene" path="res://projectile/projectile.tscn" id="1_166u0"]
+[ext_resource type="PackedScene" uid="uid://drms0v4qscf3w" path="res://projectile/projectile.tscn" id="1_166u0"]
 [ext_resource type="Texture2D" uid="uid://tioj42nq7p2c" path="res://projectile/textures/player_missle.png" id="2_gh31w"]
 [ext_resource type="Script" path="res://projectile/player_missle.gd" id="2_sjcij"]
 [ext_resource type="Texture2D" uid="uid://cocu6xpksp2l6" path="res://effects/textures/particle.png" id="3_ohfdf"]
@@ -16,7 +16,7 @@ point_count = 2
 width = 128
 curve = SubResource("Curve_ct5px")
 
-[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_celjn"]
+[sub_resource type="ParticleProcessMaterial" id="ParticlesMaterial_celjn"]
 emission_shape = 3
 emission_box_extents = Vector3(0, 2, 0)
 particle_flag_disable_z = true
