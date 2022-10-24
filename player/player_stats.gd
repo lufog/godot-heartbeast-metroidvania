@@ -30,4 +30,10 @@ var missles_unlocked := false:
 		return missles_unlocked
 	set(value):
 		missles_unlocked = value
+		SaveLoad.custom_data.missles_unlocked = value
 		player_missles_unlocked.emit(missles_unlocked)
+
+
+func refill_stats() -> void:
+	health = max_health
+	missles = max_missles

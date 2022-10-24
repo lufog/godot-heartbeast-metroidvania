@@ -7,8 +7,9 @@ const PLAYER_BIT := 2
 
 
 func _on_trigger_area_triggered() -> void:
-	block_door.show()
-	block_door.tile_set.set_physics_layer_collision_layer(0, PLAYER_BIT)
+	if not SaveLoad.custom_data.boss_defeated:
+		block_door.show()
+		block_door.tile_set.set_physics_layer_collision_layer(0, PLAYER_BIT)
 
 
 func _on_boss_enemy_died() -> void:

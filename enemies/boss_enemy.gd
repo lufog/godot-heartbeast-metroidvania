@@ -12,6 +12,11 @@ var bullet_scene: PackedScene = preload("res://projectile/enemy_bullet.tscn")
 @onready var wall_check_right: RayCast2D = $WallCheckRight
 
 
+func _ready() -> void:
+	if SaveLoad.custom_data.boss_defeated:
+		queue_free()
+
+
 func _process(delta: float) -> void:
 	chace_player(delta)
 
@@ -39,6 +44,7 @@ func fire_bullet() -> void:
 
 func _on_enemy_stats_enemy_died() -> void:
 	died.emit()
+	SaveLoad.custom_data.boss_defeated = true
 	super._on_enemy_stats_enemy_died()
 
 

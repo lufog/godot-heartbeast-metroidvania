@@ -43,6 +43,7 @@ var double_jump: bool = true
 func _ready() -> void:
 	stats.player_died.connect(self._on_died)
 	main_instances.player = self
+	stats.missles_unlocked = SaveLoad.custom_data.missles_unlocked
 	_assign_camera.call_deferred()
 
 

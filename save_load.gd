@@ -3,6 +3,11 @@ extends Node
 
 const _SAVEFILE_PATH := "user://savegame.save"
 
+var custom_data := {
+	missles_unlocked = false,
+	boss_defeated = false
+}
+
 var is_loading := false
 
 @onready var _scene_tree := get_tree()
@@ -10,6 +15,9 @@ var is_loading := false
 
 func save_game() -> void:
 	var save_file := FileAccess.open(_SAVEFILE_PATH, FileAccess.WRITE)
+	
+	save_file.store_line(JSON.stringify(custom_data))
+	
 	var persisting_nodes := _scene_tree.get_nodes_in_group("Persists")
 	for node in persisting_nodes:
 		var node_data = node.save()
@@ -25,6 +33,10 @@ func load_game() -> void:
 		node.queue_free()
 	
 	var save_file := FileAccess.open(_SAVEFILE_PATH, FileAccess.READ)
+	
+	if not save_file.eof_reached():
+		custom_data = JSON.parse_string(save_file.get_line())
+	
 	while not save_file.eof_reached():
 		var node_data = JSON.parse_string(save_file.get_line())
 		if node_data != null:
