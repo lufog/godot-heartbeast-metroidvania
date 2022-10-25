@@ -86,12 +86,14 @@ func _physics_process(delta: float) -> void:
 				if Input.is_action_just_pressed("jump") and double_jump:
 					Utils.instantiate_scene_on_main(JumpEffectScene, global_position)
 					velocity.y = -jump_force * 0.75
+					SoundFx.play("jump", -10, randf_range(0.8, 1.0))
 					double_jump = false
 			
 			if is_on_floor() or not coyote_timer.is_stopped():
 				if Input.is_action_just_pressed("jump"):
 					Utils.instantiate_scene_on_main(JumpEffectScene, global_position)
 					velocity.y = -jump_force
+					SoundFx.play("jump", -10, randf_range(0.8, 1.0))
 					is_jumping = true
 					coyote_timer.stop()
 			
@@ -117,6 +119,7 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("jump"):
 				velocity.x = wall_axis * max_speed
 				velocity.y = -jump_force / 1.25
+				SoundFx.play("jump", -10, randf_range(0.8, 1.0))
 				state = MOVE
 				var dust_effect_position := global_position + Vector2(4 * wall_axis, -2)
 				var dust_effect := Utils.instantiate_scene_on_main(WallDustEffectScene, dust_effect_position)
@@ -164,7 +167,8 @@ func _on_hurtbox_hit(damage) -> void:
 		Events.add_screen_shake.emit(0.4, 0.5)
 		stats.health -= damage
 		blink_animation_player.play("blink")
-
+		SoundFx.play("hurt")
+		
 
 func _on_died() -> void:
 	queue_free()
@@ -183,6 +187,7 @@ func _assign_camera() -> void:
 func _create_dust_effect() -> void:
 	var dust_position := global_position + Vector2(randf_range(-4, 4), 0)
 	Utils.instantiate_scene_on_main(DustEffectScene, dust_position)
+	SoundFx.play("step", -10, randf_range(0.6, 1.2))
 
 
 func _fire_bullet() -> void:

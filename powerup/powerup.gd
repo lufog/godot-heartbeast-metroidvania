@@ -11,4 +11,4 @@ func _ready() -> void:
 
 
 func _pickup() -> void:
-	pass
+	SoundFx.play("powerup", -10)

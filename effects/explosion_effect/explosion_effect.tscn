@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4imvdpodumls"]
+[gd_scene load_steps=7 format=3 uid="uid://b4imvdpodumls"]
 
 [ext_resource type="PackedScene" uid="uid://i8vyj1oejecm" path="res://effects/effect.tscn" id="1_2jyex"]
 [ext_resource type="Texture2D" uid="uid://cajqx45tdbg7a" path="res://effects/explosion_effect/textures/explosion_effect.png" id="2_4yyjb"]
+[ext_resource type="Script" path="res://effects/explosion_effect/explosion_effect.gd" id="2_u65tl"]
 
 [sub_resource type="Animation" id="Animation_f71hy"]
 length = 0.001
@@ -55,6 +56,7 @@ _data = {
 }
 
 [node name="ExplosionEffect" instance=ExtResource("1_2jyex")]
+script = ExtResource("2_u65tl")
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_4yyjb")
