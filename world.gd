@@ -12,6 +12,7 @@ func _ready() -> void:
 		SaveLoad.is_loading = false
 	
 	main_instances.player.hit_door.connect(self._on_player_hit_door)
+	Music.list_play()
 
 
 func change_levels(door: Door) -> void:

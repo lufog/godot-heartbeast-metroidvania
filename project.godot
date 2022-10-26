@@ -68,6 +68,7 @@ LoadedResources="*res://resource_loader.gd"
 Events="*res://events.gd"
 SaveLoad="*res://save_load.gd"
 SoundFx="*res://sound_fx/sound_fx.tscn"
+Music="*res://music/music.tscn"
 
 [display]
 
