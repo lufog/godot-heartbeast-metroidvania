@@ -12,6 +12,7 @@ func _ready() -> void:
 		SaveLoad.is_loading = false
 	
 	main_instances.player.hit_door.connect(self._on_player_hit_door)
+	main_instances.player.died.connect(self._on_player_deid)
 	Music.list_play()
 
 
@@ -37,3 +38,9 @@ func get_door_with_connection(not_door: Door, connection: Resource) -> Door:
 
 func _on_player_hit_door(door: Door) -> void:
 	change_levels.call_deferred(door)
+
+
+func _on_player_deid() -> void:
+	var _scene_tree := get_tree()
+	await _scene_tree.create_timer(1.0).timeout
+	_scene_tree.change_scene_to_file("res://menus/game_over_menu.tscn")

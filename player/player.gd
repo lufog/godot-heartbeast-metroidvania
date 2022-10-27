@@ -10,6 +10,7 @@ const MissleScene: PackedScene = preload("res://projectile/player_missle.tscn")
 enum { MOVE, WALL_SLIDE }
 
 signal hit_door(door: Door)
+signal died()
 
 var stats = LoadedResources.player_stats
 var main_instances = LoadedResources.main_instances
@@ -171,6 +172,7 @@ func _on_hurtbox_hit(damage) -> void:
 		
 
 func _on_died() -> void:
+	died.emit()
 	queue_free()
 
 

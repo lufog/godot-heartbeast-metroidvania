@@ -13,7 +13,8 @@ var paused := false:
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pause"):
+	var player_alive := _scene_tree.get_nodes_in_group("Player").size() > 0
+	if Input.is_action_just_pressed("pause") and player_alive:
 		paused = not paused
 		if paused:
 			SoundFx.play("pause", -10)

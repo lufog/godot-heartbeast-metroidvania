@@ -164,7 +164,7 @@ _data = {
 "blink": SubResource("Animation_xtk75")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["Persists"]]
+[node name="Player" type="CharacterBody2D" groups=["Persists", "Player"]]
 z_index = 1
 collision_mask = 2
 floor_constant_speed = true
